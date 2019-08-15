@@ -715,7 +715,6 @@
 
     bind_events: function() {
       var menuObj = this;
-
       $('.navigation-main').on('mouseenter.app.menu', 'li', function() {
         var $this = $(this);
         $('.hover', '.navigation-main').removeClass('hover');
