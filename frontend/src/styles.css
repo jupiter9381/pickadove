@@ -26,3 +26,12 @@
 .ft-menu:before {
     content: "\e979";
 }
+.ft-user:before {
+    content: "\e9d7";
+}
+.ft-users:before {
+    content: "\e9d8";
+}
+.ft-layout:before {
+    content: "\e96b";
+}

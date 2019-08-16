@@ -7,6 +7,8 @@ import { HeaderComponent } from './admin/templates/header/header.component';
 import { FooterComponent } from './admin/templates/footer/footer.component';
 import { MenuComponent } from './admin/templates/menu/menu.component';
 import { DashboardComponent } from './admin/pages/dashboard/dashboard.component';
+import { FieldComponent } from './admin/pages/field/field.component';
+import { BreadcrumbComponent } from './admin/templates/breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { DashboardComponent } from './admin/pages/dashboard/dashboard.component'
     HeaderComponent,
     FooterComponent,
     MenuComponent,
-    DashboardComponent
+    DashboardComponent,
+    FieldComponent,
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,
