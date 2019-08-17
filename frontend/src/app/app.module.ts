@@ -3,12 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './admin/templates/header/header.component';
-import { FooterComponent } from './admin/templates/footer/footer.component';
-import { MenuComponent } from './admin/templates/menu/menu.component';
-import { DashboardComponent } from './admin/pages/dashboard/dashboard.component';
-import { FieldComponent } from './admin/pages/field/field.component';
-import { BreadcrumbComponent } from './admin/templates/breadcrumb/breadcrumb.component';
+import { HeaderComponent } from './templates/header/header.component';
+import { FooterComponent } from './templates/footer/footer.component';
+import { MenuComponent } from './templates/menu/menu.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -16,9 +14,7 @@ import { BreadcrumbComponent } from './admin/templates/breadcrumb/breadcrumb.com
     HeaderComponent,
     FooterComponent,
     MenuComponent,
-    DashboardComponent,
-    FieldComponent,
-    BreadcrumbComponent
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

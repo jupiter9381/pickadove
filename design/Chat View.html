@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chat View</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/animate.min.css">
+
+</head>
+
+<body>
+    <!--    NAVIGATION-->
+<div class="navbar_bg shadow"><div class="gray"></div><div class="pink"></div></div>
+<div class="body_content">
+    <div class="navbar">
+        <div class="navbar_top">
+            <img class="img-circle nav_img" src="images/kayla.png">
+            <img class="nav_img_co" src="images/circle.png">
+            <span>Rose Ward</span>            
+        </div>
+        <div class="navbar_btm">
+            <div class="navbar_btm_div">
+                <div class="states" data-toggle="modal" data-target="#myModal">STATES</div>
+                <ul>
+                    <li>SA</li>
+                    <li>VIC</li>
+                    <li class="nav_active">NSW</li>
+                    <li>QLD</li>
+                    <li>NT</li>
+                    <li>WA</li>
+                    <li>TAS</li>
+                </ul>
+                <button class="set_btn">Set Default</button>
+            </div>
+        </div>
+    </div>
+    <div class="shadow chat_maincontent">
+        <div class="pink_bar chat_pinkbar">CHAT HERE</div>
+        <div class="contact_main">
+            <div class="contact_history">
+                <div class="contact_history_bar">CONTACT HISTORY</div>
+                <div class="contact_history_pink">
+                    <p>Anonomus User1</p>
+                    <div>10:00AM 10-05-19</div>
+                    <img class="bin" src="images/bin.png">
+                </div>
+                <p class="contact_historyP">Anonomus User1</p>
+                <div class="contact_historyDiv">10:00AM 10-05-19</div>
+            </div>
+            <div id="scroll_view" class="chat_width">
+                <div class="chat_window chatting_window">
+                    <p>
+                        <img class="contact_img" src="images/person1.png">
+                        <span class="contact_messagebox">Anonomus User1
+                            <br>
+                            <span class="chatting_time">10-05-19 05:30PM</span>
+                            <br>
+                            <span class="chatting_text">This is My Comment for this profile This is for long Comments.</span>
+                            <img class="chat_smile" src="images/love.png">
+                            <img class="chat_smile" src="images/love.png">
+                            <img class="chat_smile" src="images/love.png">
+                            <span class="chatting_reply">Replies(0)</span>
+                        </span>
+                        <br>
+                    </p>
+
+                    <p>
+                        <img class="contact_img" src="images/person2.png">
+                        <span class="contact_messagebox">Anonomus User1
+                            <br>
+                            <span class="chatting_time">10-05-19 05:30PM</span>
+                            <br>
+                            <span class="chatting_text">This is My Comment for this Profile.</span>
+                            <img class="chat_smile" src="images/tongue.png">
+                            <span class="chatting_reply">Replies(1)</span>
+                        </span>
+                        <br>
+                    </p>
+
+                    <p class="chat_window_p3">
+                        <img class="contact_img" src="images/person3.png">
+                        <span class="contact_messagebox">Anonomus User1
+                            <br>
+                            <span class="chatting_time">10-05-19 05:30PM</span>
+                            <br>
+                            <span class="chatting_text">This is My Comment for this Profile.</span>
+                        </span>
+                    </p>
+
+                    <div>
+                        <img class="contact_img" src="images/person4.png">
+                        <span class="nick_name">Nick Name</span>                            
+                        <input type="text">
+                        <br>
+                        <textarea></textarea>
+                        <img class="smile_content" src="images/imerticon.png">
+                    </div>
+                </div>
+            </div>
+            <form class="chat_send_form">
+                <input type="text" name="">
+                <img src="images/pin.png">
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+    <!-- ------------ modal ----------->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog states_modal">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="states_modal_body modal-body navbar_btm">
+                <h3>Welcome To Pick a Dove</h3>
+                <p class="states_modal_p">We have detected <span>SA</span> as your current Location.</p>
+                <p>Is this Correct? or Select Below</p>
+                <ul class="states_modal_ul">
+                    <li>SA</li>
+                    <li>VIC</li>
+                    <li>NSW</li>
+                    <li>QLD</li>
+                    <li>NT</li>
+                    <li>WA</li>
+                    <li>TAS</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Okay</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+    <!-- ------------ script ----------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js "></script>
+    <script src="js/wow.min.js "></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="js/bootstrap.min.js "></script>
+    <script>
+
+    
+        $( window ).on( "load", function() {
+            $("html, body").animate({ scrollTop: $(".navbar").offset().top-67 }, 1000);
+        });
+
+        $(".navbar_btm div ul li").click(function() {
+            $("li").removeClass("nav_active");
+            $(this).addClass('nav_active');              
+        });
+
+    </script>
+</body>
+
+</html>

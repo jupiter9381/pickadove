@@ -1,0 +1,51 @@
+<div class="body_content">
+    <app-header></app-header>
+    
+    <div class="shadow sign-btn-group">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">Sign Up</a></li>
+            <li><a data-toggle="tab" href="#menu1">Sign In</a></li>
+        </ul>
+    
+        <div class="tab-content sing-tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <h2 class="sign-create">Create Your Account</h2>
+                <p class="sign-select">Please Select Account Type</p>
+                <form action="">
+                    <div class="form-group">
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember"> 
+                            </label><span class="form-check-label-l"> Advertise</span>
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember"> 
+                            </label><span class="form-check-label-l"> Browser</span>
+                        </div>
+                        <input type="email" class="form-control sign-firstName" id="email" placeholder="First name*" name="email">
+                        <input type="email" class="form-control sign-lastName" id="email" placeholder="Last Name*" name="email">
+                        <input type="email" class="form-control sign-email" id="email" placeholder="Enter email" name="email">
+                        <input type="password" class="form-control sign-password" id="pwd" placeholder="Enter password" name="pswd">
+                        <input type="email" class="form-control sign-last" id="email" placeholder="Last Name*" name="email">
+                        <label class="form-check-label sign-form-label">
+                            <input class="form-check-input" type="checkbox" name="remember">
+                        </label>
+                        <span class="sign-span">I accept the <a href="#">Terms and Conditions</a></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary sign-btn-signUp">Sign Up</button>
+                </form>
+            </div>
+            <div id="menu1" class="tab-pane fade sign-menu">
+                <h2>Log In</h2>
+                <form action="">
+                    <div class="form-group">
+                        <input type="email" class="form-control sign-emailAddress" id="email" placeholder="Email Address*" name="email">
+                        <input type="password" class="form-control" id="pwd" placeholder="Password*" name="pswd">
+                        <a href="#">Forgot your password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</div>

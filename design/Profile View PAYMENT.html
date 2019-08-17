@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Profile View PAYMENT</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/animate.min.css">
+
+</head>
+
+<body>
+    <!--    NAVIGATION-->
+<div class="navbar_bg shadow"><div class="gray"></div><div class="pink"></div></div>
+<div class="body_content">
+    <div class="navbar">
+        <div class="navbar_top">
+            <img class="img-circle nav_img" src="images/kayla.png">
+            <img class="nav_img_co" src="images/circle.png">
+            <span>Rose Ward</span>            
+        </div>
+        <div class="navbar_btm">
+            <div class="navbar_btm_div">
+                <div class="states" data-toggle="modal" data-target="#myModal">STATES</div>
+                <ul>
+                    <li>SA</li>
+                    <li>VIC</li>
+                    <li class="nav_active">NSW</li>
+                    <li>QLD</li>
+                    <li>NT</li>
+                    <li>WA</li>
+                    <li>TAS</li>
+                </ul>
+                <button class="set_btn">Set Default</button>
+            </div>
+        </div>
+    </div>
+    <div class="main profile_m">
+        <div>
+            <div class="boy_test">
+                <h4>Boys Testimonial</h4>
+                <p><img src="images/plus.png"><a href="#">Add New</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Search Now</a></p>
+            </div>
+            <button class="pause_btn">LIVE</button>
+            <div class="credit">
+                <h4>Account Credit</h4>
+                <p><img src="images/plus.png"><a href="#">Add Credit</a>&nbsp;&nbsp;>&nbsp;&nbsp;<span>$100.00</span></p>
+            </div>
+        </div>
+        <div class="navbar_btm midnav shadow">
+            <ul>
+                <li>PREVIEW</li>
+                <li>EDIT</li>
+                <li class="midnav_active">PAYMENT</li>
+            </ul>
+        </div>
+        <div id="payment">
+            <div class="pre_profile shadow pre_profile_payment">
+                <div id="payment_title">
+                    <div id="payment_title_1">
+                        <h3 id="payment_title_1_1">Recharge Account Here!</h3>
+                        <p id="payment_title_1_2">Select a Package and Receive a Bouns Credit</p>
+                    </div>
+                    <div id="payment_title_2">
+                        <h3 id="payment_title_2_1">YOUR CURRENT:  <span>$100.00</span></h3>
+                        <a href="#" id="payment_title_2_2">Transaction Details</a>
+                    </div>
+                </div>
+                <div id="payment_card">
+                    <div class="payment_card_item">
+                        <h3 class="payment_card_item_first_title">Enter</h3>
+                        <h3 class="payment_card_item_first_amount">Amount</h3>
+                        <hr class="payment_card_item_first_hr">
+                        <p class="payment_card_item_user">Enter Amount you<br /> wish to recharge</p>
+                        <span class="payment_card_item_add">ADD</span>
+                    </div>
+                    <div class="payment_card_item">
+                        <h3 class="payment_card_item_title">Sliver</h3>
+                        <h3 class="payment_card_item_pay">Pay $50</h3>
+                        <h3 class="payment_card_item_get">Get</h3>
+                        <h3 class="payment_card_item_price">$10.00</h3>
+                        <h3 class="payment_card_item_bonus">Bonus</h3>
+                        <p class="payment_card_item_user">Greate for light users</p>
+                        <span class="payment_card_item_add">ADD</span>
+                    </div>
+                    <div class="payment_card_item">
+                        <h3 class="payment_card_item_title">Sliver</h3>
+                        <h3 class="payment_card_item_pay">Pay $50</h3>
+                        <h3 class="payment_card_item_get">Get</h3>
+                        <h3 class="payment_card_item_price">$10.00</h3>
+                        <h3 class="payment_card_item_bonus">Bonus</h3>
+                        <p class="payment_card_item_user">Greate for light users</p>
+                        <span class="payment_card_item_add">ADD</span>
+                    </div>
+                    <div class="payment_card_item_latest">
+                        <h3 class="payment_card_item_title">Sliver</h3>
+                        <h3 class="payment_card_item_pay">Pay $50</h3>
+                        <h3 class="payment_card_item_get">Get</h3>
+                        <h3 class="payment_card_item_price">$10.00</h3>
+                        <h3 class="payment_card_item_bonus">Bonus</h3>
+                        <p class="payment_card_item_user">Greate for light users</p>
+                        <span class="payment_card_item_add">ADD</span>
+                    </div>
+                </div>
+                <div id="payment_bottom">
+                    <p id="payment_bottom_amount">Total Amount Added: <span id="payment_bottom_price">$100.00</span></p>
+                    <p id="payment_bottom_after">PayHere after Adding Credit</p>
+                    <img src="images/pink_line.png" id="payment_bottom_img">
+                    <button class="btn" id="payment_bottom_button"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- ------------ modal ----------->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog states_modal">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="states_modal_body modal-body navbar_btm">
+                <h3>Welcome To Pick a Dove</h3>
+                <p class="states_modal_p">We have detected <span>SA</span> as your current Location.</p>
+                <p>Is this Correct? or Select Below</p>
+                <ul class="states_modal_ul">
+                    <li>SA</li>
+                    <li>VIC</li>
+                    <li>NSW</li>
+                    <li>QLD</li>
+                    <li>NT</li>
+                    <li>WA</li>
+                    <li>TAS</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Okay</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+    <!-- ------------ script ----------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js "></script>
+    <script src="js/wow.min.js "></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="js/bootstrap.min.js "></script>
+    <script>
+
+        $( window ).on( "load", function() {
+            $("html, body").animate({ scrollTop: $(".navbar").offset().top-67 }, 1000);
+        });
+
+        $(".navbar_btm div ul li").click(function() {
+            $("li").removeClass("nav_active");
+            $(this).addClass('nav_active');              
+        });
+
+        $(".midnav ul li").click(function() {
+            $("li").removeClass("midnav_active");
+            $(this).addClass('midnav_active');              
+        });
+
+    </script>
+</body>
+
+</html>

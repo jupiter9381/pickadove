@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Profile View User Edit</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/animate.min.css">
+
+</head>
+
+<body>
+    <!--    NAVIGATION-->
+<div class="navbar_bg shadow"><div class="gray"></div><div class="pink"></div></div>
+<div class="body_content">
+    <div class="navbar">
+        <div class="navbar_top">
+            <img class="img-circle nav_img" src="images/kayla.png">
+            <img class="nav_img_co" src="images/circle.png">
+            <span>Rose Ward</span>            
+        </div>
+        <div class="navbar_btm">
+            <div class="navbar_btm_div">
+                <div class="states" data-toggle="modal" data-target="#myModal">STATES</div>
+                <ul>
+                    <li>SA</li>
+                    <li>VIC</li>
+                    <li class="nav_active">NSW</li>
+                    <li>QLD</li>
+                    <li>NT</li>
+                    <li>WA</li>
+                    <li>TAS</li>
+                </ul>
+                <button class="set_btn">Set Default</button>
+            </div>
+        </div>
+    </div>
+    <div class="main profile_m">
+        <div>
+            <div class="boy_test">
+                <h4>Boys Testimonial</h4>
+                <p><img src="images/plus.png"><a href="#">Add New</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Search Now</a></p>
+            </div>
+            <button class="pause_btn">PAUSE AD</button>
+            <div class="credit">
+                <h4>Account Credit</h4>
+                <p><img src="images/plus.png"><a href="#">Add Credit</a>&nbsp;&nbsp;>&nbsp;&nbsp;<span>$100.00</span></p>
+            </div>
+        </div>
+        <div class="navbar_btm midnav shadow">
+            <ul>
+                <li>PREVIEW</li>
+                <li class="midnav_active">EDIT</li>
+                <li>PAYMENT</li>
+            </ul>
+        </div>
+        <div id="edit">
+            <div class="shadow live_bar">
+                YOUR PROFILE IS LIVE
+                <div>
+                    <img src="images/up_arrow.png">
+                    <p class="live_barP">$0.00</p>
+                    <p class="live_barP1">BUMP UP</p>
+                </div>
+            </div>
+            <p class="profile_expire">
+            Your Profile will Expire in 7days, Please Login to Repost.
+            </p>
+            <div class="pre_profile shadow pre_profile_edit">
+                <div class="float">
+                    <div class="pumpup wow fadeInRight" data-wow-delay="0.2s">
+                        <p id="pump_p">Profile Pump Up Auto Cycle</p>
+                        <select>
+                            <option>Min</option>
+                            <option>Max</option>
+                        </select>
+                        <input class="pump_input" type="text" name="">
+                        <div id="verify_box">
+                            <button class="btn red_btn">Request Verification</button>
+                            <div id="verify_boxdiv">
+                                <p>Profile highlight</p>
+                                <div>$10.00/week</div>
+                                <div id="verify_boxdivdiv">
+                                    <input class="form-check-input pump_check" type="checkbox" name="remember">
+                                    <span>Auto Cycle</span><br />
+                                    <span id="verify_boxspan">every week</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hours hours_edit wow fadeInLeft" data-wow-delay="0.2s">
+                        <img id="hours_edit_img" src="images/pre_profile.png">
+                        <img id="hours_edit_img1" src="images/double_ribbon2.png">
+                        <button class="btn red_btn">Change Profile Picture</button>
+                        <h3 class="housh3">WORK HOURS</h3>
+                        <div>
+                            <p>MON____AM<select><option></option></select></p>
+                            <span>TO____PM<select><option></option></select></span>
+                        </div>
+                        <div>
+                            <p>MON____AM<select><option></option></select></p>
+                            <span>TO____PM<select><option></option></select></span>
+                        </div>
+                        <div>
+                            <p>MON____AM<select><option></option></select></p>
+                            <span>TO____PM<select><option></option></select></span>
+                        </div>
+                        <div>
+                            <p>MON____AM<select><option></option></select></p>
+                            <span>TO____PM<select><option></option></select></span>
+                        </div>
+                    </div>
+                    <div class="wow fadeInRight" data-wow-delay="0.2s">
+                        <button class="btn red_btn">Change Name</button>
+                        <button class="btn red_btn">Change Password</button>
+                        <button class="btn red_btn">Change Email</button>
+                        <button class="btn red_btn red_btn_location"><img src="images/location_white.png"> Change Location</button>
+                    </div>
+                    <div class="wow fadeInRight user_profile_container" data-wow-delay="0.6s">
+                        <div class="info dissama">
+                            <div><p>Dissama</p>   <input type="" name=""></div>
+                            <div><p>Age</p>   <input type="" name=""></div>
+                            <div><p>Height</p>   <input type="" name=""></div>
+                            <div><p>Dissama</p>   <select></select></div>
+                            <div><p>Age</p>   <select></select></div>
+                            <div><p>Height</p>   <input type="" name=""></div>
+                        </div>
+                        <div class="other_contact">
+                            <p>OTHER CONTACTS</p>
+                            <span><img src="images/phone1.png"> 04115-545-545</span>
+                            <span class="other_phonenum"><img src="images/message1.png"> 04115-545-545</span>
+                            <button class="btn red_btn save_btn">Save</button>
+                        </div>                    
+                    </div>
+                    <div>
+                        <div class="pink_bar1">Service selection</div>
+                        <div class="form-group form-check service_check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember">
+                                <span> Service1</span>
+                            </label>
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember">
+                                <span> Service1</span>
+                            </label>
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember">
+                                <span> Service1</span>
+                            </label>
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember">
+                                <span> Service1</span>
+                            </label>
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember">
+                                <span> Service1</span>
+                            </label>
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember">
+                                <span> Service1</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="pink_bar1">About me</div>
+                        <div id="widget">
+                            <img src="images/format.png">
+                        </div>
+                        <button class="btn red_btn save_btn save_btn1">Add Video</button>
+                        <button class="btn red_btn save_btn save_btn2">Save</button>
+                    </div>
+                    <div>
+                        <div class="pink_bar1">Photo Gallery</div>
+                        <div class="upload_btn"><button class="btn red_btn save_btn">Upload</button></div>
+                        <div class="upload_photo">
+                            <div class="upload_photo_div">
+                                <img class="shadow" src="images/pre_profile_c.png">
+                                <div class="form-group form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" name="remember">
+                                        <span> LOCK</span>
+                                    </label>
+                                    <a href="#">DELET</a>
+                                </div>
+                            </div>
+                            <div class="upload_photo_div">
+                                <img class="shadow" src="images/pre_profile_c.png">
+                                <div class="form-group form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" name="remember">
+                                        <span> LOCK</span>
+                                    </label>
+                                    <a href="#">DELET</a>
+                                </div>
+                                <img class="upload_ribbon" src="images/lock1.png">
+                            </div>
+                            <div class="upload_photo_div">
+                                <img class="shadow" src="images/pre_profile_c.png">
+                                <div class="form-group form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" name="remember">
+                                        <span> LOCK</span>
+                                    </label>
+                                    <a href="#">DELET</a>
+                                </div>
+                            </div>
+                            <div class="upload_photo_div">
+                                <img class="shadow" src="images/pre_profile_c.png">
+                                <div class="form-group form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" name="remember">
+                                        <span> LOCK</span>
+                                    </label>
+                                    <a href="#">DELET</a>
+                                </div>
+                            </div>
+                            <div class="upload_photo_div">
+                                <img class="shadow" src="images/pre_profile_c.png">
+                                <div class="form-group form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" name="remember">
+                                        <span> LOCK</span>
+                                    </label>
+                                    <a href="#">DELET</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat_body">
+                    <div class="pink_bar">Comments</div>
+                    <div class="pink_bar pink_bar_btm">
+                        <div>Comments (10)</div>
+                        <span>Complaints (0)</span>
+                    </div>
+                    <div class="chat_window">
+                        <p>
+                            <img class="contact_img" src="images/person1.png">
+                            <span class="contact_messagebox">Anonomus User1
+                                <br>
+                                <span class="chatting_time">10-05-19 05:30PM</span>
+                                <br>
+                                <span class="chatting_text">This is My Comment for this profile This is for long Comments.</span>
+                                <img class="chat_smile" src="images/love.png">
+                                <img class="chat_smile" src="images/love.png">
+                                <img class="chat_smile" src="images/love.png">
+                                <span class="chatting_reply">Replies(0)</span>
+                            </span>
+                            <br>
+                        </p>
+
+                        <p>
+                            <img class="contact_img" src="images/person2.png">
+                            <span class="contact_messagebox">Anonomus User1
+                                <br>
+                                <span class="chatting_time">10-05-19 05:30PM</span>
+                                <br>
+                                <span class="chatting_text">This is My Comment for this Profile.</span>
+                                <img class="chat_smile" src="images/tongue.png">
+                                <span class="chatting_reply">Replies(1)</span>
+                            </span>
+                            <br>
+                        </p>
+
+                        <p class="chat_window_p3">
+                            <img class="contact_img" src="images/person3.png">
+                            <span class="contact_messagebox">Anonomus User1
+                                <br>
+                                <span class="chatting_time">10-05-19 05:30PM</span>
+                                <br>
+                                <span class="chatting_text">This is My Comment for this Profile.</span>
+                            </span>
+                        </p>
+
+                        <div>
+                            <img class="contact_img" src="images/person4.png">
+                            <span class="nick_name">Nick Name</span>                            
+                            <input type="text">
+                            <br>
+                            <textarea></textarea>
+                            <img class="smile_content" src="images/imerticon.png">
+                        </div>
+                    </div>
+                    <button class="chat_body_btn">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- ------------ modal ----------->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog states_modal">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="states_modal_body modal-body navbar_btm">
+                <h3>Welcome To Pick a Dove</h3>
+                <p class="states_modal_p">We have detected <span>SA</span> as your current Location.</p>
+                <p>Is this Correct? or Select Below</p>
+                <ul class="states_modal_ul">
+                    <li>SA</li>
+                    <li>VIC</li>
+                    <li>NSW</li>
+                    <li>QLD</li>
+                    <li>NT</li>
+                    <li>WA</li>
+                    <li>TAS</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Okay</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+    <!-- ------------ script ----------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js "></script>
+    <script src="js/wow.min.js "></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="js/bootstrap.min.js "></script>
+    <script>
+
+        $( window ).on( "load", function() {
+            $("html, body").animate({ scrollTop: $(".navbar").offset().top-67 }, 1000);
+        });
+
+        $(".navbar_btm div ul li").click(function() {
+            $("li").removeClass("nav_active");
+            $(this).addClass('nav_active');              
+        });
+
+        $(".midnav ul li").click(function() {
+            $("li").removeClass("midnav_active");
+            $(this).addClass('midnav_active');              
+        });
+
+    </script>
+</body>
+
+</html>

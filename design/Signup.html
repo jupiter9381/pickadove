@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Signup</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/animate.min.css">
+
+</head>
+
+<body>
+    <!--    NAVIGATION-->
+<div class="navbar_bg shadow"><div class="gray"></div><div class="pink"></div></div>
+<div class="body_content">
+    <div class="navbar">
+        <div class="navbar_top">
+            <img class="img-circle nav_img" src="images/kayla.png">
+            <img class="nav_img_co" src="images/circle.png">
+            <span>Rose Ward</span>            
+        </div>
+        <div class="navbar_btm">
+            <div class="navbar_btm_div">
+                <div class="states" data-toggle="modal" data-target="#myModal">STATES</div>
+                <ul>
+                    <li>SA</li>
+                    <li>VIC</li>
+                    <li class="nav_active">NSW</li>
+                    <li>QLD</li>
+                    <li>NT</li>
+                    <li>WA</li>
+                    <li>TAS</li>
+                </ul>
+                <button class="set_btn">Set Default</button>
+            </div>
+        </div>
+    </div>
+    <div class="shadow sign-btn-group">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">Sign Up</a></li>
+            <li><a data-toggle="tab" href="#menu1">Sign In</a></li>
+        </ul>
+    
+        <div class="tab-content sing-tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <h2 class="sign-create">Create Your Account</h2>
+                <p class="sign-select">Please Select Account Type</p>
+                <form action="">
+                    <div class="form-group">
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember"> 
+                            </label><span class="form-check-label-l"> Advertise</span>
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember"> 
+                            </label><span class="form-check-label-l"> Browser</span>
+                        </div>
+                        <input type="email" class="form-control sign-firstName" id="email" placeholder="First name*" name="email">
+                        <input type="email" class="form-control sign-lastName" id="email" placeholder="Last Name*" name="email">
+                        <input type="email" class="form-control sign-email" id="email" placeholder="Enter email" name="email">
+                        <input type="password" class="form-control sign-password" id="pwd" placeholder="Enter password" name="pswd">
+                        <input type="email" class="form-control sign-last" id="email" placeholder="Last Name*" name="email">
+                        <label class="form-check-label sign-form-label">
+                          <input class="form-check-input" type="checkbox" name="remember">
+                        </label>
+                        <span class="sign-span">I accept the <a href="#">Terms and Conditions</a></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary sign-btn-signUp">Sign Up</button>
+                </form>
+            </div>
+            <div id="menu1" class="tab-pane fade sign-menu">
+                <h2>Log In</h2>
+                <form action="">
+                    <div class="form-group">
+                        <input type="email" class="form-control sign-emailAddress" id="email" placeholder="Email Address*" name="email">
+                        <input type="password" class="form-control" id="pwd" placeholder="Password*" name="pswd">
+                        <a href="#">Forgot your password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- ------------ modal ----------->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog states_modal">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="states_modal_body modal-body navbar_btm">
+                <h3>Welcome To Pick a Dove</h3>
+                <p class="states_modal_p">We have detected <span>SA</span> as your current Location.</p>
+                <p>Is this Correct? or Select Below</p>
+                <ul class="states_modal_ul">
+                    <li>SA</li>
+                    <li>VIC</li>
+                    <li>NSW</li>
+                    <li>QLD</li>
+                    <li>NT</li>
+                    <li>WA</li>
+                    <li>TAS</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Okay</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+    <!-- ------------ script ----------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js "></script>
+    <script src="js/wow.min.js "></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="js/bootstrap.min.js "></script>
+    <script>
+
+    
+        $( window ).on( "load", function() {
+            $("html, body").animate({ scrollTop: $(".navbar").offset().top-67 }, 1000);
+        });
+
+        $(".navbar_btm div ul li").click(function() {
+            $("li").removeClass("nav_active");
+            $(this).addClass('nav_active');              
+        });
+
+    </script>
+</body>
+
+</html>
