@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,9 @@ import { ChatComponent } from './pages/chat/chat.component';
 import { MapViewComponent } from './pages/map-view/map-view.component';
 import { ProfileEditComponent } from './pages/profile-edit/profile-edit.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { VerificationComponent } from './pages/verification/verification.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,10 +33,14 @@ import { ProfileEditComponent } from './pages/profile-edit/profile-edit.componen
     ChatComponent,
     MapViewComponent,
     ProfileEditComponent,
+    VerificationComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

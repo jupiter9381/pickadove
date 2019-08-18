@@ -11,21 +11,21 @@
             <div id="home" class="tab-pane fade in active">
                 <h2 class="sign-create">Create Your Account</h2>
                 <p class="sign-select">Please Select Account Type</p>
-                <form action="">
+                <form action="" (ngSubmit)="onRegister()" [formGroup]="signupForm">
                     <div class="form-group">
                         <div class="form-group form-check">
                             <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" name="remember"> 
+                                <input class="form-check-input" type="radio" formControlName="usertype" value="1"> 
                             </label><span class="form-check-label-l"> Advertise</span>
                             <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" name="remember"> 
+                                <input class="form-check-input" type="radio" formControlName="usertype" value="0"> 
                             </label><span class="form-check-label-l"> Browser</span>
                         </div>
-                        <input type="email" class="form-control sign-firstName" id="email" placeholder="First name*" name="email">
-                        <input type="email" class="form-control sign-lastName" id="email" placeholder="Last Name*" name="email">
-                        <input type="email" class="form-control sign-email" id="email" placeholder="Enter email" name="email">
-                        <input type="password" class="form-control sign-password" id="pwd" placeholder="Enter password" name="pswd">
-                        <input type="email" class="form-control sign-last" id="email" placeholder="Last Name*" name="email">
+                        <input type="email" class="form-control sign-firstName" placeholder="First name*" formControlName="firstname">
+                        <input type="email" class="form-control sign-lastName" placeholder="Last Name*" formControlName="lastname">
+                        <input type="email" class="form-control sign-email" placeholder="Enter email" formControlName="email">
+                        <input type="password" class="form-control sign-password" placeholder="Enter password" formControlName="password">
+                        
                         <label class="form-check-label sign-form-label">
                             <input class="form-check-input" type="checkbox" name="remember">
                         </label>
@@ -36,10 +36,10 @@
             </div>
             <div id="menu1" class="tab-pane fade sign-menu">
                 <h2>Log In</h2>
-                <form action="">
+                <form action="" (ngSubmit)="onLogin()">
                     <div class="form-group">
-                        <input type="email" class="form-control sign-emailAddress" id="email" placeholder="Email Address*" name="email">
-                        <input type="password" class="form-control" id="pwd" placeholder="Password*" name="pswd">
+                        <input type="email" class="form-control sign-emailAddress" placeholder="Email Address*" [formControl]="email">
+                        <input type="password" class="form-control" placeholder="Password*" [formControl]="password">
                         <a href="#">Forgot your password?</a>
                     </div>
                     <button type="submit" class="btn btn-primary">Login</button>
