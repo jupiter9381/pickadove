@@ -36,7 +36,7 @@ export class SignupComponent implements OnInit {
 
   onLogin() {
     this.submitted = true;
-    
+
     return this.api.signin({
       email: this.email.value,
       password: this.password.value
@@ -55,9 +55,9 @@ export class SignupComponent implements OnInit {
   }
   handleProfileResponse(data: any) {
     this.submitted = false;
-    if (data.type === 'signup'){
+    if (data.type === 'signup') {
       this.router.navigate(['verification']);
     }
   }
-  handleError(error: any){}
+  handleError(error: any) {}
 }
