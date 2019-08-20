@@ -12,28 +12,27 @@
                             <div class="card-content collapse show">
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table table-hover">
+                                        <table class="table">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
                                                     <th>First Name</th>
                                                     <th>Last Name</th>
                                                     <th>Email</th>
-                                                    <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php 
-                                                foreach ($advertisers as $key => $value) { ?>
+                                                
+                                                foreach ($browsers as $key => $value) { ?>
                                                 <tr style="cursor: pointer;">
                                                     <th scope="row"><?= $key + 1; ?></th>
                                                     <td><?= $value -> firstname; ?></td>
                                                     <td><?= $value -> lastname; ?></td>
                                                     <td><?= $value -> email; ?></td>
-                                                    <td><a class="btn btn-primary" href="<?= base_url();?>user/edit/<?= $value->id;?>">Edit</a></td>
                                                 </tr>
                                                 <?php }?>
-                                            </tbody>0
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>

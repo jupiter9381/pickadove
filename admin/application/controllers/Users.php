@@ -28,4 +28,25 @@ class Users extends Base_Controller {
         $this->load->view('users/advertisers', $content);
         $this->load->view('templates/footer');
     }
+
+    public function browsers() {
+        $browsers = $this->user->get_users(2);
+
+        $content['browsers'] = $browsers;
+
+        $this->load->view('templates/header');
+        $this->load->view('templates/menu' );
+        $this->load->view('users/browsers', $content);
+        $this->load->view('templates/footer');
+    }
+
+    public function edit($id) {
+        $user = $this->user->get_user($id);
+
+        $content['user'] = $user[0];
+        $this->load->view('templates/header');
+        $this->load->view('templates/menu' );
+        $this->load->view('users/edit', $content);
+        $this->load->view('templates/footer');
+    }
 }
