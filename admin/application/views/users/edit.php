@@ -16,19 +16,19 @@
                                         <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
                                             <fieldset class="form-group">
                                                 <label for="basicInput">First Name</label>
-                                                <input type="text" class="form-control" name="firstname">
+                                                <input type="text" class="form-control" name="firstname" value="<?= $user->firstname;?>">
                                             </fieldset>
                                         </div>
                                         <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
                                             <fieldset class="form-group">
                                                 <label >Last Name</label>
-                                                <input type="text" class="form-control" name="lastname">
+                                                <input type="text" class="form-control" name="lastname" value="<?= $user->lastname;?>">
                                             </fieldset>
                                         </div>
                                         <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
                                             <fieldset class="form-group">
                                                 <label for="basicInput">Email</label>
-                                                <input type="email" class="form-control" name="email">
+                                                <input type="email" class="form-control" name="email" value="<?= $user->email;?>">
                                             </fieldset>
                                         </div>
                                     </div>
