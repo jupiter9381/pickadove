@@ -16,6 +16,7 @@ class Review extends Base_Controller {
         $this->load->view('templates/menu' );
         $this->load->view('reviews/comments', $content);
         $this->load->view('templates/footer');
+        $this->load->view('reviews/script');
     }
 
     public function complaints() {

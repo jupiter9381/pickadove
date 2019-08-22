@@ -32,11 +32,30 @@
                                                     <td><?= $value -> created_at; ?></td>
                                                     <td><?= $value -> recevier_email; ?></td>
                                                     <td><?= $value -> notes; ?></td>
-                                                    <td><a class="btn btn-primary" href="<?= base_url();?>review/comments/<?= $value->id;?>">Edit</a></td>
+                                                    <td><button class="btn btn-primary delete" link="<?= base_url();?>review/delete/<?= $value->id;?>" data-toggle="modal" data-backdrop="false" href="#delete-modal">Delete</button></td>
                                                 </tr>
                                                 <?php }?>
                                             </tbody>
                                         </table>
+                                        <div class="modal fade text-left" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel8" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header bg-primary white">
+                                                        <h4 class="modal-title" id="myModalLabel8">Delete Confirm</h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <h5>Are you sure to delete this comment?</h5>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-outline-primary confirm_del" >Save changes</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

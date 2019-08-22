@@ -32,7 +32,7 @@
                                                     <td><?= $value -> created_at; ?></td>
                                                     <td><?= $value -> recevier_email; ?></td>
                                                     <td><?= $value -> notes; ?></td>
-                                                    <td><a class="btn btn-primary" href="<?= base_url();?>review/comments/<?= $value->id;?>">Edit</a></td>
+                                                    <td><a class="btn btn-primary" href="<?= base_url();?>review/delete/<?= $value->id;?>">Delete</a></td>
                                                 </tr>
                                                 <?php }?>
                                             </tbody>

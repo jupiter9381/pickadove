@@ -24,7 +24,7 @@
                 </li>
                 <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="index.html" data-toggle="dropdown"><i class="ft-users"></i><span>Reviews</span></a>
                     <ul class="dropdown-menu">
-                        <li data-menu=""><a class="dropdown-item" href="<?= base_url();?>users/advertisers" data-toggle="dropdown">Comments</a>
+                        <li data-menu=""><a class="dropdown-item" href="<?= base_url();?>review/comments" data-toggle="dropdown">Comments</a>
                         </li>
                         <li data-menu=""><a class="dropdown-item" href="<?= base_url();?>review/complaints" data-toggle="dropdown">Complaints</a>
                         </li>
