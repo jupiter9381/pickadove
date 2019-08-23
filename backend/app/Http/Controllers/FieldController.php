@@ -11,6 +11,17 @@ class FieldController extends Controller
 
     public function getProfileFields() {
         $fields = Field::all()->toArray();
-        return response()->json(['status' => 'success', 'result' => $fields], 200);
+        $data = array();
+        foreach ($fields as $key => $value) {
+            $item = array (
+                "values" => json_decode($value['values']),
+                "type" => $value['type'],
+                'name' => $value['name'],
+                'required' => $value['required']
+            );
+
+            array_push($data, $item);
+        }
+        return response()->json(['status' => 'success', 'result' => $data], 200);
     }
 }

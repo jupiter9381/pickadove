@@ -54,6 +54,33 @@ class Fields extends Base_Controller {
                 'created_at' => date("Y-m-d h:i:s"),
                 'updated_at' => date("Y-m-d h:i:s"),
             );
+        } else if ( $type == "3") {
+            $config['upload_path']          = './uploads/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             = 10000;
+            $config['max_width']            = 1024;
+            $config['max_height']           = 768;
+            $config['file_name'] = $_FILES["icon"]['name'];
+
+            $this->load->library('upload', $config);
+            
+            $this->upload->initialize($config);
+
+            if ( ! $this->upload->do_upload('icon')){
+                $error = array('error' => $this->upload->display_errors());
+                
+            } else {
+                $this->upload->data();
+
+                $data = array(
+                    "name" => $name,
+                    'type' => $type,
+                    'required' => $required,
+                    'values' => "uploads/" . $_FILES["icon"]['name'],
+                    'created_at' => date("Y-m-d h:i:s"),
+                    'updated_at' => date("Y-m-d h:i:s"),
+                );
+            }
         }
 
         $this->field->add_value($data);

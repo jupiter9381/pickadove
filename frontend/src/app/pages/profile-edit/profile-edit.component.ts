@@ -31,9 +31,6 @@ selectedCity: any;
     this.api.getProfileFields()
       .subscribe(data => {
         this.fields = data['result'];
-        this.fields.forEach(field => {
-          field.values = JSON.parse(field.values);
-        });
         console.log(this.fields);
       });
   }

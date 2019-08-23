@@ -11,7 +11,7 @@
                         </div>
                         <div class="card-content collapse show">
                             <div class="card-body">
-                                <form method="post" action="<?= base_url();?>fields/addValue">
+                                <form method="post" action="<?= base_url();?>fields/addValue" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col-md-3">
                                             <fieldset class="form-group">
@@ -55,6 +55,15 @@
                                                     </fieldset>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="contact-section col-md-7" style="display: none;">
+                                            <fieldset class="form-group">
+                                                <label for="basicInputFile">Icon</label>
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="inputGroupFile01" name="icon">
+                                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                </div>
+                                            </fieldset>    
                                         </div>
                                         <div class="col-md-2">
                                             <fieldset class="form-group">
