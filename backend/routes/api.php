@@ -22,4 +22,5 @@ Route::group([
 ], function () {
     Route::post('login', 'AuthController@login');
     Route::post('register', 'AuthController@register');
+    Route::get('getProfileFields', 'FieldController@getProfileFields');
 });

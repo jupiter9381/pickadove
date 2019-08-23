@@ -17,4 +17,7 @@ export class ApiService {
   signup(data) {
     return this.http.post(`${this.baseURL}register`, data);
   }
+  getProfileFields() {
+    return this.http.get(`${this.baseURL}getProfileFields`);
+  }
 }
