@@ -476,12 +476,18 @@ body{
     margin: 0;
 }
 
-.info span{
+/* .info span{
     float: right;
     font-weight: bold;
     font-size: 17px;
+} */
+span.select2 {
+    float: right;
 }
-
+span.select2-selection--multiple {
+    background-color: #f1f1f1;
+    border: none;
+}
 .pink_bar{
     width: 860px;
     height: 40px;

@@ -87,12 +87,19 @@
                     
                         <div class="wow fadeInRight user_profile_container" data-wow-delay="0.6s">
                             <div class="info dissama">
-                                <div *ngFor="let item of fields">
-                                    <p>{{item.name}}</p>
-                                    <input type="hidden" value="{{item.id}}">
-
-                                    <input type="" formControlName="values" value="">
+                                <div formArrayName="values">
+                                    <div *ngFor="let item of fields; index as i">
+                                        <p>{{item.name}}</p>
+                                        <input *ngIf="item.type === 1" type="" formControlName="{{i}}">
+                                        <select *ngIf="item.type === 2" class="select2" multiple="multiple">
+                                            <option></option>
+                                            <option value="English">English</option>
+                                            <option value="Russian">Russian</option>
+                                        </select>
+                                    </div>
+                                    
                                 </div>
+                                
                                 <!-- <div><p>Age</p>   <input type="" name=""></div>
                                 <div><p>Height</p>   <input type="" name=""></div>
                                 <div><p>Dissama</p>   <select></select></div>

@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormControl, Validators, FormGroup, FormArray } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
+import { timeout } from 'q';
+
+
+declare var $:any;
 
 @Component({
   selector: 'app-profile-edit',
@@ -13,11 +17,16 @@ export class ProfileEditComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   fields: any;
-
-
+  cities = [
+    {id: 1, name: 'Vilnius'},
+    {id: 2, name: 'Kaunas'},
+    {id: 3, name: 'Pavilnys', disabled: true},
+    {id: 4, name: 'Pabradė'},
+    {id: 5, name: 'Klaipėda'}
+];
+selectedCity: any;
   profileForm = new FormGroup({
-    ids: new FormArray([new FormControl(333)]),
-    values: new FormControl()
+    values: new FormArray([new FormControl(), new FormControl(), new FormControl(), new FormControl()])
   });
 
   ngOnInit() {
@@ -34,5 +43,13 @@ export class ProfileEditComponent implements OnInit {
 
   onSubmit() {
     console.log(this.profileForm.value);
+    console.log(this.fields);
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(function(){
+      $('.select2').select2({
+      });
+    }, 1000);
   }
 }
