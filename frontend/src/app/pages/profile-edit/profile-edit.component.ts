@@ -17,13 +17,7 @@ export class ProfileEditComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   fields: any;
-  cities = [
-    {id: 1, name: 'Vilnius'},
-    {id: 2, name: 'Kaunas'},
-    {id: 3, name: 'Pavilnys', disabled: true},
-    {id: 4, name: 'Pabradė'},
-    {id: 5, name: 'Klaipėda'}
-];
+
 selectedCity: any;
   profileForm = new FormGroup({
     values: new FormArray([new FormControl(), new FormControl(), new FormControl(), new FormControl()])
@@ -37,6 +31,9 @@ selectedCity: any;
     this.api.getProfileFields()
       .subscribe(data => {
         this.fields = data['result'];
+        this.fields.forEach(field => {
+          field.values = JSON.parse(field.values);
+        });
         console.log(this.fields);
       });
   }

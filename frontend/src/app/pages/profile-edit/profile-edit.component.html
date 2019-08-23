@@ -92,9 +92,7 @@
                                         <p>{{item.name}}</p>
                                         <input *ngIf="item.type === 1" type="" formControlName="{{i}}">
                                         <select *ngIf="item.type === 2" class="select2" multiple="multiple">
-                                            <option></option>
-                                            <option value="English">English</option>
-                                            <option value="Russian">Russian</option>
+                                            <option *ngFor="let value of item.values">{{value}}</option>
                                         </select>
                                     </div>
                                     
