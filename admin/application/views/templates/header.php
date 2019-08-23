@@ -16,6 +16,8 @@
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="<?= base_url();?>app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url();?>app-assets/vendors/css/forms/selects/select2.min.css">
+
     <link rel="stylesheet" type="text/css" href="<?= base_url();?>app-assets/vendors/css/forms/icheck/icheck.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url();?>app-assets/vendors/css/forms/icheck/custom.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url();?>app-assets/vendors/css/charts/morris.css">
@@ -37,6 +39,8 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url();?>app-assets/css/core/colors/palette-gradient.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url();?>app-assets/fonts/simple-line-icons/style.min.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url();?>app-assets/fonts/meteocons/style.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url();?>app-assets/css/plugins/forms/checkboxes-radios.css">
+
     <link rel="stylesheet" type="text/css" href="<?= base_url();?>app-assets/css/pages/users.css">
     <!-- END: Page CSS-->
 

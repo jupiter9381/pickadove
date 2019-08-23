@@ -30,6 +30,14 @@
                         </li>
                     </ul>
                 </li>
+                <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="index.html" data-toggle="dropdown"><i class="ft-users"></i><span>Fields</span></a>
+                    <ul class="dropdown-menu">
+                        <li data-menu=""><a class="dropdown-item" href="<?= base_url();?>fields/" data-toggle="dropdown">List</a>
+                        </li>
+                        <li data-menu=""><a class="dropdown-item" href="<?= base_url();?>fields/add" data-toggle="dropdown">Add</a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <!-- /horizontal menu content-->
