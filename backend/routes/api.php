@@ -29,4 +29,5 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::post('getProfileFields', 'FieldController@getProfileFields');
     Route::post('saveProfileInfo', 'ProfileController@saveProfileFields');
 
+    Route::post('updateLocation', 'ProfileController@updateLocation');
 });

@@ -11,7 +11,7 @@ export class GuardService implements CanActivate {
         if(isLoggedIn){
             return true;
         }
-        this.router.navigate(['login']);
+        this.router.navigate(['signup']);
         return false;
     }
   constructor(

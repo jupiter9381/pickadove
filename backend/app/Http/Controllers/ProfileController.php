@@ -6,6 +6,7 @@ use JWTAuth;
 
 use Illuminate\Http\Request;
 use App\Profile;
+use APP\User;
 
 class ProfileController extends Controller
 {
@@ -43,5 +44,14 @@ class ProfileController extends Controller
             ]);
         }
         return response()->json(['status' => 'success'], 200);
+    }
+
+    public function updateLocation(Request $request) {
+        $user_id = Auth::user()->id;
+        $user = User::find($user_id);
+        $user->state = $request->input('state');
+        $user->suburb = $request->input('suburb');
+        $user->save();
+        return response()->json(['status' => 'success', 'result' => 'Update location successfully.'], 200);
     }
 }

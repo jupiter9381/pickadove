@@ -30,6 +30,11 @@ export class ProfileEditComponent implements OnInit {
   mandatory: any;
   dropdowns: any;
   contacts: any;
+  
+    state: any;
+    suburb: any;
+
+    changableLocation: boolean;
 
   profileForm = new FormGroup({
     mandatory_values: new FormArray([new FormControl(), new FormControl(), new FormControl(), new FormControl(), new FormControl()]),
@@ -39,15 +44,21 @@ export class ProfileEditComponent implements OnInit {
 
 
   ngOnInit() {
+    this.changableLocation = false;
+
     //create search FormControl
     this.searchControl = new FormControl();
 
     //load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-        types: ['(cities)']
+        types: ['(cities)'],
+        componentRestrictions: { country: ['in', 'AU'] },
       });
+      this.changableLocation = false;
+
       autocomplete.addListener("place_changed", () => {
+        this.changableLocation = true;
         this.ngZone.run(() => {
           //get the place result
           let place: google.maps.places.PlaceResult = autocomplete.getPlace();
@@ -55,8 +66,15 @@ export class ProfileEditComponent implements OnInit {
           //verify result
           if (place.geometry === undefined || place.geometry === null) {
             return;
+          };
+          let address = place['formatted_address'].split(",")[0];
+          let address_array = address.split(' ');
+          this.state = address_array[address_array.length - 1];
+          this.suburb = '';
+          for (let i = 0; i < address_array.length - 1; i++) {
+            this.suburb += address_array[i];
           }
-          console.log(place);
+          
         });
       });
     });
@@ -109,6 +127,20 @@ export class ProfileEditComponent implements OnInit {
 
   }
 
+  updateLocation() {
+    if (this.changableLocation === true) {
+      let data = {
+        state: this.state,
+        suburb: this.suburb,
+        token: this.token .get()
+      }
+      this.api.updateLocation(data)
+      .subscribe(data => {
+        $("#locationModal").modal('hide');
+      });
+    }
+    
+  }
   ngAfterViewInit(): void {
     setTimeout(function() {
       $('.select2').select2({
@@ -117,7 +149,6 @@ export class ProfileEditComponent implements OnInit {
   }
 
   handleProfileResponse(data: any) {
-    console.log(data);
   }
   handleError(error: any) {}
 

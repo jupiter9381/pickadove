@@ -10,8 +10,10 @@ import { ChatComponent } from './pages/chat/chat.component';
 import { MapViewComponent } from './pages/map-view/map-view.component';
 import { ProfileEditComponent } from './pages/profile-edit/profile-edit.component';
 import { VerificationComponent } from './pages/verification/verification.component';
+import { GuardService } from './service/guard.service';
 
 const routes: Routes = [
+  { path: '', component: SignupComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'profile-preview', component: ProfilePreviewComponent},
   { path: 'payment-history', component: PaymentHistoryComponent},
@@ -19,7 +21,7 @@ const routes: Routes = [
   { path: 'profile-browser', component: ProfileBrowserComponent},
   { path: 'chat', component: ChatComponent},
   { path: 'map-view', component: MapViewComponent},
-  { path: 'profile-edit', component: ProfileEditComponent},
+  { path: 'profile-edit', component: ProfileEditComponent, canActivate: [GuardService]},
   { path: 'verification', component: VerificationComponent}
 ];
 

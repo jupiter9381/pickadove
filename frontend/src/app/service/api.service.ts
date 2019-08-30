@@ -18,12 +18,13 @@ export class ApiService {
     return this.http.post(`${this.baseURL}register`, data);
   }
   getProfileFields(data) {
-    console.log(data);
     return this.http.post(`${this.baseURL}getProfileFields`, data);
   }
 
   saveProfile(data) {
-    console.log(data);
     return this.http.post(`${this.baseURL}saveProfileInfo`, data);
+  }
+  updateLocation(data) {
+    return this.http.post(`${this.baseURL}updateLocation`, data);
   }
 }

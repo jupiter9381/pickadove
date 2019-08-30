@@ -94,11 +94,9 @@
                             </div>
                             <div class="modal-body">
                               <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
-                                <!-- <agm-map [latitude]="center.lat" [longitude]="center.lng" (mapReady)="onMapReady($event)">
-                                    <agm-marker  [latitude]="center.lat" [longitude]="center.lng" ></agm-marker>
-                                </agm-map>  -->
                             </div>
                             <div class="modal-footer">
+                                <button type="button" class="btn btn-default" style="margin-bottom: 0px;" (click)="updateLocation()">Update</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
                         </div>
