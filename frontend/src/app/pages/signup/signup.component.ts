@@ -58,6 +58,10 @@ export class SignupComponent implements OnInit {
     if (data.type === 'signup') {
       this.router.navigate(['verification']);
     }
+    if(data.type === 'signin') {
+      localStorage.setItem('token', data.token);
+      this.router.navigate(['profile-edit']);
+    }
   }
   handleError(error: any) {}
 }

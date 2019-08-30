@@ -80,29 +80,62 @@
                         <button class="btn red_btn">Change Name</button>
                         <button class="btn red_btn">Change Password</button>
                         <button class="btn red_btn">Change Email</button>
-                        <button class="btn red_btn red_btn_location"><img src="assets/images/location_white.png"> Change Location</button>
+                        <button class="btn red_btn red_btn_location" data-target="#locationModal" data-toggle="modal"><img src="assets/images/location_white.png"> Change Location</button>
+                    </div>
+                    <!-- Modal -->
+                    <div id="locationModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Location</h4>
+                            </div>
+                            <div class="modal-body">
+                              <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+                                <!-- <agm-map [latitude]="center.lat" [longitude]="center.lng" (mapReady)="onMapReady($event)">
+                                    <agm-marker  [latitude]="center.lat" [longitude]="center.lng" ></agm-marker>
+                                </agm-map>  -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                        </div>
                     </div>
                     <form (ngSubmit)="onSubmit()" [formGroup]="profileForm">
 
-                    
+
                         <div class="wow fadeInRight user_profile_container" data-wow-delay="0.6s">
                             <div class="info dissama">
-                                <div formArrayName="values">
-                                    <div *ngFor="let item of fields; index as i">
+                                <div formArrayName="mandatory_values">
+                                    <div *ngFor="let item of mandatory; index as i">
                                         <p>{{item.name}}</p>
-                                        <input *ngIf="item.type === 1" type="" formControlName="{{i}}">
-                                        <select *ngIf="item.type === 2" class="select2" multiple="multiple">
+                                        <input type="" formControlName="{{i}}">
+                                    </div>
+                                </div>
+                                <div formArrayName="dropdown_values">
+                                    <div *ngFor="let item of dropdowns; index as i">
+                                        <p>{{item.name}}</p>
+                                        <select class="select2" multiple="multiple" formControlName="{{i}}">
                                             <option *ngFor="let value of item.values">{{value}}</option>
                                         </select>
                                     </div>
                                 </div>
+
+
                             </div>
                             <div class="other_contact">
                                 <p>OTHER CONTACTS</p>
-                                <span><img src="assets/images/phone1.png"> 04115-545-545</span>
-                                <span class="other_phonenum"><img src="assets/images/message1.png"> 04115-545-545</span>
+                                <div formArrayName="contacts_values">
+                                    <div *ngFor="let item of contacts; index as i">
+                                        <img src="{{item.values}}"> <input formControlName="{{i}}">
+                                    </div>
+                                </div>
                                 <button class="btn red_btn save_btn">Save</button>
-                            </div>                    
+                            </div>
                         </div>
                     </form>
                     <div>
@@ -247,7 +280,7 @@
 
                         <div>
                             <img class="contact_img" src="assets/images/person4.png">
-                            <span class="nick_name">Nick Name</span>                            
+                            <span class="nick_name">Nick Name</span>
                             <input type="text">
                             <br>
                             <textarea></textarea>

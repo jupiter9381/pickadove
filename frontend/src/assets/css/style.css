@@ -641,7 +641,6 @@ span.select2-selection--multiple {
 
 .dissama div{
     width: 100%;
-    margin-bottom: 12px;
 }
 
 .dissama p{
@@ -1250,7 +1249,7 @@ input:checked + .slider:before {
 
 .user_profile_container{
     float: left;
-    width: 460px;
+    width: 500px;
     margin-top: 60px;
 }
 
@@ -1274,7 +1273,7 @@ input:checked + .slider:before {
     float: right;
 }
 
-.other_contact span img{
+.other_contact img{
     width: 55px;
     margin-right: 10px;
 }

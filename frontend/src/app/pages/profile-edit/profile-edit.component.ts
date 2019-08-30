@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {  Component, ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
+import { MapsAPILoader } from '@agm/core';
 
 import { FormControl, Validators, FormGroup, FormArray } from '@angular/forms';
 import { ApiService } from '../../service/api.service';
-import { timeout } from 'q';
+import { TokenService } from '../../service/token.service';
+
 
 
 declare var $:any;
@@ -14,36 +16,109 @@ declare var $:any;
 })
 export class ProfileEditComponent implements OnInit {
 
-  constructor(private api: ApiService) { }
+  public latitude: number;
+  public longitude: number;
+  public searchControl: FormControl;
+  public zoom: number;
 
-  fields: any;
+  @ViewChild("search")
+  public searchElementRef: ElementRef;
 
-selectedCity: any;
+  constructor(private api: ApiService, private token: TokenService, private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone) { }
+
+  mandatory: any;
+  dropdowns: any;
+  contacts: any;
+
   profileForm = new FormGroup({
-    values: new FormArray([new FormControl(), new FormControl(), new FormControl(), new FormControl()])
+    mandatory_values: new FormArray([new FormControl(), new FormControl(), new FormControl(), new FormControl(), new FormControl()]),
+    contacts_values: new FormArray([new FormControl(), new FormControl(), new FormControl(), new FormControl(), new FormControl()]),
+    dropdown_values: new FormArray([new FormControl(), new FormControl(), new FormControl(), new FormControl(), new FormControl()]),
   });
 
+
   ngOnInit() {
-      this.getProfileFields();
+    //create search FormControl
+    this.searchControl = new FormControl();
+
+    //load Places Autocomplete
+    this.mapsAPILoader.load().then(() => {
+      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+        types: ['(cities)']
+      });
+      autocomplete.addListener("place_changed", () => {
+        this.ngZone.run(() => {
+          //get the place result
+          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+
+          //verify result
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
+          console.log(place);
+        });
+      });
+    });
+
+    this.getProfileFields();
   }
 
   getProfileFields() {
-    this.api.getProfileFields()
+    this.api.getProfileFields({token: this.token.get()})
       .subscribe(data => {
-        this.fields = data['result'];
-        console.log(this.fields);
+        this.mandatory = data['mandatory'];
+        this.dropdowns = data['dropdowns'];
+        this.contacts = data['contacts'];
       });
   }
 
   onSubmit() {
-    console.log(this.profileForm.value);
-    console.log(this.fields);
+    let dropdown_items = [];
+    $("select.select2").each(function(index) {
+      dropdown_items.push($(this).val());
+    });
+
+    var profileData = this.profileForm.value;
+
+    var formData = {};
+    var mandatoryData = [];
+    var contactsData = [];
+    var dropdownData = [];
+    this.mandatory.forEach((value, i) => {
+      let item = {id: value.id, value: profileData['mandatory_values'][i] };
+      mandatoryData.push(item);
+    });
+    this.contacts.forEach((value, i) => {
+      let item = {id: value.id, value: profileData['contacts_values'][i] };
+      contactsData.push(item);
+    });
+    this.dropdowns.forEach((value, i) => {
+      let item = {id: value.id, value: dropdown_items[i] };
+      dropdownData.push(item);
+    });
+
+    formData['mandatory'] = mandatoryData;
+    formData['dropdowns'] = dropdownData;
+    formData['contacts'] = contactsData;
+    formData['token'] = this.token.get();
+    return this.api.saveProfile(formData).subscribe(
+      data => this.handleProfileResponse(data),
+      error => this.handleError(error)
+    );
+
   }
 
   ngAfterViewInit(): void {
-    setTimeout(function(){
+    setTimeout(function() {
       $('.select2').select2({
       });
     }, 1000);
   }
+
+  handleProfileResponse(data: any) {
+    console.log(data);
+  }
+  handleError(error: any) {}
+
 }

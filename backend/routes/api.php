@@ -13,14 +13,20 @@ use Illuminate\Http\Request;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+*/
 
-Route::group([
-    'middleware' => 'api',
-], function () {
-    Route::post('login', 'AuthController@login');
-    Route::post('register', 'AuthController@register');
-    Route::get('getProfileFields', 'FieldController@getProfileFields');
+Route::post('login', 'ApiController@login');
+Route::post('register', 'ApiController@register');
+
+Route::group(['middleware' => 'auth.jwt'], function () {
+    Route::get('logout', 'ApiController@logout');
+
+    Route::get('user', 'ApiController@getAuthUser');
+
+    Route::post('getProfileFields', 'FieldController@getProfileFields');
+    Route::post('saveProfileInfo', 'ProfileController@saveProfileFields');
+
 });
