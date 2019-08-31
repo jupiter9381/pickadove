@@ -6,8 +6,8 @@
                 <h2>Email Verification</h2>
                 <p>A Verification Code has been send to your Nominated Email.</p>
                 <span>Example@Examp.com</span>
-                <form action="">
-                    <input type="email" class="form-control" id="email" placeholder="Enter Verification Code" name="email">
+                <form action="" (ngSubmit)="onVerification()">
+                    <input type="text" class="form-control" placeholder="Enter Verification Code" [formControl]="code">
                     <button type="submit" class="btn">Verify</button>
                 </form>
             </div>

@@ -27,4 +27,7 @@ export class ApiService {
   updateLocation(data) {
     return this.http.post(`${this.baseURL}updateLocation`, data);
   }
+  checkVerification(data) {
+    return this.http.post(`${this.baseURL}checkVerification`, data);
+  }
 }

@@ -20,11 +20,14 @@ use Illuminate\Http\Request;
 
 Route::post('login', 'ApiController@login');
 Route::post('register', 'ApiController@register');
+Route::post('checkVerification', 'ApiController@checkVerification');
 
 Route::group(['middleware' => 'auth.jwt'], function () {
     Route::get('logout', 'ApiController@logout');
 
     Route::get('user', 'ApiController@getAuthUser');
+
+    Route::post('doVerification', 'ApiController@verification');
 
     Route::post('getProfileFields', 'FieldController@getProfileFields');
     Route::post('saveProfileInfo', 'ProfileController@saveProfileFields');

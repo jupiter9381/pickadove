@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../service/api.service';
+
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-verification',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VerificationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private api: ApiService) { }
 
+  code = new FormControl('', [Validators.required]);
   ngOnInit() {
+    
   }
 
+  onVerification() {
+    this.api.checkVerification({code: this.code.value})
+      .subscribe(data => {
+        console.log(data);
+      });
+  }
 }
