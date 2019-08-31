@@ -97,9 +97,16 @@ class ApiController extends Controller
     public function checkVerification(Request $request) {
         $code = $request->input('code');
         $user = User::where('verification_code', $code)->first();
-        return response()->json([
-            'success' => true,
-            'user' => $user
-        ], 200);
+        if($user) {
+            return response()->json([
+                'success' => true,
+                'user' => $user
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false
+            ], 200);
+        }
+        
     }
 }

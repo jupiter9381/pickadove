@@ -234,51 +234,51 @@
                 <div class="chat_body">
                     <div class="pink_bar">Comments</div>
                     <div class="pink_bar pink_bar_btm">
-                        <div>Comments (10)</div>
-                        <span>Complaints (0)</span>
+                        <div (click)="chooseTypeReview('comment');" [ngClass]="{'active': reviewSelected==='comment'}">Comments</div>
+                        <div (click)="chooseTypeReview('complaint');" [ngClass]="{'active': reviewSelected==='complaint'}">Complaints (0)</div>
                     </div>
-                    <div class="chat_window">
-                        <p>
+                    <div class="chat_window" *ngIf="reviewSelected==='comment'">
+                        <p *ngFor="let item of comments">
                             <img class="contact_img" src="assets/images/person1.png">
-                            <span class="contact_messagebox">Anonomus User1
+                            <span class="contact_messagebox">{{item.username}}
                                 <br>
-                                <span class="chatting_time">10-05-19 05:30PM</span>
+                                <span class="chatting_time">{{item.created_at}}</span>
                                 <br>
-                                <span class="chatting_text">This is My Comment for this profile This is for long Comments.</span>
-                                <img class="chat_smile" src="assets/images/love.png">
-                                <img class="chat_smile" src="assets/images/love.png">
-                                <img class="chat_smile" src="assets/images/love.png">
-                                <span class="chatting_reply">Replies(0)</span>
+                                <span class="chatting_text">{{item.notes}}</span>
                             </span>
                             <br>
                         </p>
-
-                        <p>
-                            <img class="contact_img" src="assets/images/person2.png">
-                            <span class="contact_messagebox">Anonomus User1
-                                <br>
-                                <span class="chatting_time">10-05-19 05:30PM</span>
-                                <br>
-                                <span class="chatting_text">This is My Comment for this Profile.</span>
-                                <img class="chat_smile" src="assets/images/tongue.png">
-                                <span class="chatting_reply">Replies(1)</span>
-                            </span>
-                            <br>
-                        </p>
-
-                        <p class="chat_window_p3">
-                            <img class="contact_img" src="assets/images/person3.png">
-                            <span class="contact_messagebox">Anonomus User1
-                                <br>
-                                <span class="chatting_time">10-05-19 05:30PM</span>
-                                <br>
-                                <span class="chatting_text">This is My Comment for this Profile.</span>
-                            </span>
-                        </p>
-
+                        <!-- <img class="chat_smile" src="assets/images/love.png">
+                                <img class="chat_smile" src="assets/images/love.png">
+                                <img class="chat_smile" src="assets/images/love.png">
+                                <span class="chatting_reply">Replies(0)</span> -->
                         <div>
                             <img class="contact_img" src="assets/images/person4.png">
                             <span class="nick_name">Nick Name</span>
+                            <input type="text">
+                            <br>
+                            <textarea></textarea>
+                            <img class="smile_content" src="assets/images/imerticon.png">
+                        </div>
+                    </div>
+                    <div class="chat_window" *ngIf="reviewSelected==='complaint'">
+                        <p *ngFor="let item of complaints">
+                            <img class="contact_img" src="assets/images/person1.png">
+                            <span class="contact_messagebox">{{item.username}}
+                                <br>
+                                <span class="chatting_time">{{item.created_at}}</span>
+                                <br>
+                                <span class="chatting_text">{{item.notes}}</span>
+                            </span>
+                            <br>
+                        </p>
+                        <!-- <img class="chat_smile" src="assets/images/love.png">
+                                <img class="chat_smile" src="assets/images/love.png">
+                                <img class="chat_smile" src="assets/images/love.png">
+                                <span class="chatting_reply">Replies(0)</span> -->
+                        <div>
+                            <img class="contact_img" src="assets/images/person4.png">
+                            <span class="nick_name">Nick Name 111</span>
                             <input type="text">
                             <br>
                             <textarea></textarea>

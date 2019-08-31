@@ -21,6 +21,9 @@ export class ProfileEditComponent implements OnInit {
   public searchControl: FormControl;
   public zoom: number;
 
+  comments: [];
+  complaints: [];
+
   @ViewChild("search")
   public searchElementRef: ElementRef;
 
@@ -30,7 +33,8 @@ export class ProfileEditComponent implements OnInit {
   mandatory: any;
   dropdowns: any;
   contacts: any;
-  
+  reviewSelected: any = 'comment';
+
     state: any;
     suburb: any;
 
@@ -44,6 +48,24 @@ export class ProfileEditComponent implements OnInit {
 
 
   ngOnInit() {
+
+    this.googleMapLoacation();
+
+    this.getProfileFields();
+
+    this.getProfileComments();
+  }
+
+  getProfileFields() {
+    this.api.getProfileFields({token: this.token.get()})
+      .subscribe(data => {
+        this.mandatory = data['mandatory'];
+        this.dropdowns = data['dropdowns'];
+        this.contacts = data['contacts'];
+      });
+  }
+
+  googleMapLoacation() {
     this.changableLocation = false;
 
     //create search FormControl
@@ -78,19 +100,20 @@ export class ProfileEditComponent implements OnInit {
         });
       });
     });
-
-    this.getProfileFields();
   }
 
-  getProfileFields() {
-    this.api.getProfileFields({token: this.token.get()})
+  getProfileComments() {
+    this.api.getProfileReviews({token: this.token.get()})
       .subscribe(data => {
-        this.mandatory = data['mandatory'];
-        this.dropdowns = data['dropdowns'];
-        this.contacts = data['contacts'];
+        this.comments = data.comments;
+        this.complaints = data.complaints;
+
       });
   }
 
+  chooseTypeReview(type: any) {
+    this.reviewSelected = type;
+  }
   onSubmit() {
     let dropdown_items = [];
     $("select.select2").each(function(index) {
@@ -132,14 +155,14 @@ export class ProfileEditComponent implements OnInit {
       let data = {
         state: this.state,
         suburb: this.suburb,
-        token: this.token .get()
+        token: this.token.get()
       }
       this.api.updateLocation(data)
       .subscribe(data => {
-        $("#locationModal").modal('hide');
+        $('#locationModal').modal('hide');
       });
     }
-    
+
   }
   ngAfterViewInit(): void {
     setTimeout(function() {

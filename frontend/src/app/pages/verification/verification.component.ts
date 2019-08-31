@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../service/api.service';
 
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-verification',
@@ -10,7 +11,7 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 })
 export class VerificationComponent implements OnInit {
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private router: Router) { }
 
   code = new FormControl('', [Validators.required]);
   ngOnInit() {
@@ -20,7 +21,12 @@ export class VerificationComponent implements OnInit {
   onVerification() {
     this.api.checkVerification({code: this.code.value})
       .subscribe(data => {
-        console.log(data);
+        if (data.success === true) {
+          this.router.navigate(['profile-edit']);
+        }
+      },
+      error => {
+        console.log(error);
       });
   }
 }

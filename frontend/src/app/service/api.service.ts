@@ -30,4 +30,7 @@ export class ApiService {
   checkVerification(data) {
     return this.http.post(`${this.baseURL}checkVerification`, data);
   }
+  getProfileReviews(data) {
+    return this.http.post(`${this.baseURL}getProfileReviews`, data);
+  }
 }

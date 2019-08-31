@@ -7,6 +7,8 @@ use JWTAuth;
 use Illuminate\Http\Request;
 use App\Profile;
 use APP\User;
+use App\Review;
+use DB;
 
 class ProfileController extends Controller
 {
@@ -53,5 +55,13 @@ class ProfileController extends Controller
         $user->suburb = $request->input('suburb');
         $user->save();
         return response()->json(['status' => 'success', 'result' => 'Update location successfully.'], 200);
+    }
+
+    public function getProfileReviews(Request $request) {
+        $user_id = Auth::user()->id;
+
+        $comments = DB::table('reviews')->select('reviews.*')->join('users', 'users.id', '=', 'reviews.receiver_id')->where('reviews.type', 1)->get();
+        $complaints = DB::table('reviews')->select('reviews.*')->join('users', 'users.id', '=', 'reviews.receiver_id')->where('reviews.type', 2)->get();
+        return response()->json(['status' => 'success', 'comments' => $comments, 'complaints' => $complaints], 200);
     }
 }

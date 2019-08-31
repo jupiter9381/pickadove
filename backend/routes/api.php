@@ -33,4 +33,6 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::post('saveProfileInfo', 'ProfileController@saveProfileFields');
 
     Route::post('updateLocation', 'ProfileController@updateLocation');
+
+    Route::post('getProfileReviews', 'ProfileController@getProfileReviews');
 });
