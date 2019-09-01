@@ -21,7 +21,7 @@ export class VerificationComponent implements OnInit {
   onVerification() {
     this.api.checkVerification({code: this.code.value})
       .subscribe(data => {
-        if (data.success === true) {
+        if (data['success'] === true) {
           this.router.navigate(['profile-edit']);
         }
       },

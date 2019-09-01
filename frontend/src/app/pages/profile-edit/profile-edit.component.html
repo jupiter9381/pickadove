@@ -248,18 +248,26 @@
                             </span>
                             <br>
                         </p>
-                        <!-- <img class="chat_smile" src="assets/images/love.png">
-                                <img class="chat_smile" src="assets/images/love.png">
-                                <img class="chat_smile" src="assets/images/love.png">
-                                <span class="chatting_reply">Replies(0)</span> -->
-                        <div>
-                            <img class="contact_img" src="assets/images/person4.png">
-                            <span class="nick_name">Nick Name</span>
-                            <input type="text">
-                            <br>
-                            <textarea></textarea>
-                            <img class="smile_content" src="assets/images/imerticon.png">
-                        </div>
+                        <form (ngSubmit)="submitReview('comment')">
+                            <div>
+                                <img class="contact_img" src="assets/images/person4.png">
+                                <span class="nick_name">Nick Name</span>
+                                <input type="text" [formControl]="comment_name">
+                                <!-- <button
+                                    type="button"
+                                    class="toggle-emoji"
+                                    (click)="toggleEmojiPicker()"
+                                    >
+                                    sdf
+                                </button> -->
+                                <emoji-mart class="emoji-mart" set="emojione" (emojiSelect)="addEmoji($event)" *ngIf="showEmojiPicker" title="Pick your emoji…"></emoji-mart>
+                                
+                                <textarea placeholder="Type a message. Hit Enter to send" [formControl]="comment_message"></textarea>
+                            </div>
+                            
+                            <button class="chat_body_btn" type="submit">Submit</button>
+                        </form>
+                        
                     </div>
                     <div class="chat_window" *ngIf="reviewSelected==='complaint'">
                         <p *ngFor="let item of complaints">
@@ -272,20 +280,19 @@
                             </span>
                             <br>
                         </p>
-                        <!-- <img class="chat_smile" src="assets/images/love.png">
-                                <img class="chat_smile" src="assets/images/love.png">
-                                <img class="chat_smile" src="assets/images/love.png">
-                                <span class="chatting_reply">Replies(0)</span> -->
-                        <div>
-                            <img class="contact_img" src="assets/images/person4.png">
-                            <span class="nick_name">Nick Name 111</span>
-                            <input type="text">
-                            <br>
-                            <textarea></textarea>
-                            <img class="smile_content" src="assets/images/imerticon.png">
-                        </div>
+                        <form (ngSubmit)="submitReview('complaint')">
+                            <div>
+                                <img class="contact_img" src="assets/images/person4.png">
+                                <span class="nick_name">Nick Name</span>
+                                <input type="text" [formControl]="complaint_name">
+                                <br>
+                                <textarea [formControl]="complaint_message"></textarea>
+                            </div>
+                            <button class="chat_body_btn" type="submit">Submit</button>
+                        </form>
+                        
                     </div>
-                    <button class="chat_body_btn">Submit</button>
+                    
                 </div>
             </div>
         </div>

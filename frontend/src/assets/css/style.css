@@ -165,6 +165,7 @@ body{
     height: 100%;
     vertical-align: middle;
     padding-top: 12px;
+    list-style: none;
 }
 
 .navbar_btm ul li:hover{
@@ -440,7 +441,7 @@ body{
     float: left;
     position: relative;
     text-align: center;
-    width: 170px;
+    width: 200px;
     margin-left: 30px;
 }
 
@@ -616,7 +617,7 @@ span.select2-selection--multiple {
 }
 
 .hours_edit{
-    margin-right: 85px;
+    margin-right: 50px;
 }
 
 .hours_edit p{
@@ -635,7 +636,7 @@ span.select2-selection--multiple {
 
 .hours_edit div{
     margin-bottom: 10px;
-    width: 220px;
+    width: 245px;
     margin-left: -10px;
 }
 
@@ -1144,7 +1145,7 @@ input:checked + .slider:before {
 #verify_box{
     position: absolute;
     right: 0px;
-    top: 75px;
+    top: 90px;
 }
 
 #verify_box button{
@@ -1155,7 +1156,7 @@ input:checked + .slider:before {
 
 #verify_boxdiv{
     width: 196px;
-    height: 112px;
+    height: 120px;
     margin-left: -1px;
     background-color: #f84f73;
     margin-top: 6px;
@@ -1294,6 +1295,9 @@ input:checked + .slider:before {
     margin-top: 15px;
 }
 
+.service_check label {
+    display: inline-block;
+}
 .service_check label{
     margin-right: 37px;
 }
@@ -1469,7 +1473,7 @@ input:checked + .slider:before {
 
 .chat_window p, .chat_window div{
     margin-top: 20px;
-    margin-left: 5%;
+    
     margin-bottom: 0px;
 }
 
@@ -1547,15 +1551,17 @@ input:checked + .slider:before {
 .chat_window div input{
     position: absolute;
     left: 50px;
-    top: 18px;
+    top: 25px;
     border: none;
     background-color: #f1f1f1;
     width: 110px;
 }
 
 .chat_window div textarea{
-    margin-left: 10px;
-    margin-top: 25px;
+    display: block;
+    margin-left: 50px;
+    margin-top: 35px;
+    margin-bottom: 10px;
     width: 80%;
     height: 80px;
     border: none;
@@ -2395,7 +2401,7 @@ input:checked + .slider:before {
 
 .sign-btn-group{
     width: 540px; 
-    height: 440px; 
+    height: 460px; 
     background-color: white; 
     margin-left: 450px; 
     margin-top: 80px;
@@ -2450,7 +2456,7 @@ input:checked + .slider:before {
 }
 
 .sign-form-label{
-    margin-top: 15px;
+    /* margin-top: 15px; */
 }
 
 .sign-span{

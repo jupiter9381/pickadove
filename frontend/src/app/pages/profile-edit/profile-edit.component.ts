@@ -24,8 +24,16 @@ export class ProfileEditComponent implements OnInit {
   comments: [];
   complaints: [];
 
-  @ViewChild("search")
+  showEmojiPicker = false;
+
+  @ViewChild('search')
+
   public searchElementRef: ElementRef;
+
+  comment_name = new FormControl('', [Validators.required]);
+  comment_message = new FormControl('', [Validators.required]);
+  complaint_name = new FormControl('', [Validators.required]);
+  complaint_message = new FormControl('', [Validators.required]);
 
   constructor(private api: ApiService, private token: TokenService, private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone) { }
@@ -105,9 +113,8 @@ export class ProfileEditComponent implements OnInit {
   getProfileComments() {
     this.api.getProfileReviews({token: this.token.get()})
       .subscribe(data => {
-        this.comments = data.comments;
-        this.complaints = data.complaints;
-
+        this.comments = data['comments'];
+        this.complaints = data['complaints'];
       });
   }
 
@@ -150,6 +157,36 @@ export class ProfileEditComponent implements OnInit {
 
   }
 
+  submitReview(type: any) {
+    let data: any
+    if(type === "comment") {
+      data = {
+        'username': this.comment_name.value,
+        'notes': this.comment_message.value,
+        'type': 1,
+        'token': this.token.get()
+      }
+    } else {
+      data = {
+        'username': this.complaint_name.value,
+        'notes': this.complaint_message.value,
+        'type': 2,
+        'token': this.token.get()
+      }
+    }
+    this.api.submitReview(data)
+      .subscribe(data => {
+        if(data['type'] === 1){
+          this.comments.push(data['review']);
+          this.comment_name.setValue("");
+          this.comment_message.setValue("");
+        } else {
+          this.complaints.push(data['review']);
+          this.complaint_name.setValue("");
+          this.complaint_message.setValue("");
+        }
+      });
+  }
   updateLocation() {
     if (this.changableLocation === true) {
       let data = {
@@ -163,6 +200,17 @@ export class ProfileEditComponent implements OnInit {
       });
     }
 
+  }
+  toggleEmojiPicker(type:any) {
+    this.showEmojiPicker = !this.showEmojiPicker;
+    console.log(type);
+  }
+  addEmoji(event) {
+    // const { message } = this;
+    // const text = `${message}${event.emoji.native}`;
+
+    // this.message = text;
+    this.showEmojiPicker = false;
   }
   ngAfterViewInit(): void {
     setTimeout(function() {

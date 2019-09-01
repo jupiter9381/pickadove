@@ -33,4 +33,7 @@ export class ApiService {
   getProfileReviews(data) {
     return this.http.post(`${this.baseURL}getProfileReviews`, data);
   }
+  submitReview(data) {
+    return this.http.post(`${this.baseURL}saveReview`, data);
+  }
 }

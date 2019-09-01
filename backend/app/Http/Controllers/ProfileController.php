@@ -64,4 +64,16 @@ class ProfileController extends Controller
         $complaints = DB::table('reviews')->select('reviews.*')->join('users', 'users.id', '=', 'reviews.receiver_id')->where('reviews.type', 2)->get();
         return response()->json(['status' => 'success', 'comments' => $comments, 'complaints' => $complaints], 200);
     }
+
+    public function saveReview(Request $request){
+        $review = new Review;
+        $review->receiver_id = Auth::user()->id;
+        $review->username = $request->input('username');
+        $review->notes = $request->input('notes');
+        $review->type = $request->input('type');
+        $review->parent = 0;
+        $review->depth = 0;
+        $review->save();
+        return response()->json(['status' => 'success', 'type'=>$request->input('type'), 'result' => 'Committed review successfully.', 'review' => $review], 200);
+    }
 }

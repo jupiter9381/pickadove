@@ -4,6 +4,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {NgSelectModule, NgOption} from '@ng-select/ng-select';
 import { AgmCoreModule } from '@agm/core';
+import { IconsModule } from './icons/icons.module';
+import { PickerModule } from '@ctrl/ngx-emoji-mart';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -47,6 +49,8 @@ import { VerificationComponent } from './pages/verification/verification.compone
       apiKey: 'AIzaSyDra0swDtsAPaAqtBJT04kyl2DfZAQxDnA',
       libraries: ["places"]
     }),
+    IconsModule,
+    PickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
