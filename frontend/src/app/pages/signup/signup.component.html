@@ -41,7 +41,7 @@
                     <div class="form-group">
                         <input type="email" class="form-control sign-emailAddress" placeholder="Email Address*" [formControl]="email">
                         <input type="password" class="form-control" placeholder="Password*" [formControl]="password">
-                        <a href="#">Forgot your password?</a>
+                        <a [routerLink]="['/password']" routerLinkActive="router-link-active" >Forgot your password?</a>
                     </div>
                     <button type="submit" class="btn btn-primary">Login</button>
                 </form>

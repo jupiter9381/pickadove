@@ -10,11 +10,16 @@ import { ChatComponent } from './pages/chat/chat.component';
 import { MapViewComponent } from './pages/map-view/map-view.component';
 import { ProfileEditComponent } from './pages/profile-edit/profile-edit.component';
 import { VerificationComponent } from './pages/verification/verification.component';
+import { PasswordComponent } from './pages/password/password.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+
 import { GuardService } from './service/guard.service';
 
 const routes: Routes = [
   { path: '', component: SignupComponent},
   { path: 'signup', component: SignupComponent},
+  { path: 'password', component: PasswordComponent},
+  { path: 'reset-password', component: ResetPasswordComponent},
   { path: 'profile-preview', component: ProfilePreviewComponent},
   { path: 'payment-history', component: PaymentHistoryComponent},
   { path: 'payment', component: PaymentComponent},

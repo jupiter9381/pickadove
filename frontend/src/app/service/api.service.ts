@@ -36,4 +36,8 @@ export class ApiService {
   submitReview(data) {
     return this.http.post(`${this.baseURL}saveReview`, data);
   }
+
+  passwordRecovery(data){
+    return this.http.post(`${this.baseURL}passwordRecovery`, data);
+  }
 }

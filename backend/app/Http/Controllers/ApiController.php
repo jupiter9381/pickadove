@@ -11,6 +11,7 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Support\Facades\Mail;
 
 use App\Mail\TestEmail;
+use App\Mail\PasswordEmail;
 
 class ApiController extends Controller
 {
@@ -107,6 +108,13 @@ class ApiController extends Controller
                 'success' => false
             ], 200);
         }
+    }
+
+    public function passwordRecovery(Request $request) {
+        $email = $request->input('email');
+
+        $data = ['email' => $email];
         
+        Mail::to($request->email)->send(new PasswordEmail($data));
     }
 }
