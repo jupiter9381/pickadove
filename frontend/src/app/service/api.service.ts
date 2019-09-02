@@ -37,10 +37,16 @@ export class ApiService {
     return this.http.post(`${this.baseURL}saveReview`, data);
   }
 
+  getProfileServices(data) {
+    return this.http.post(`${this.baseURL}getProfileServices`, data);
+  }
   passwordRecovery(data){
     return this.http.post(`${this.baseURL}passwordRecovery`, data);
   }
   resetPassword(data) {
     return this.http.post(`${this.baseURL}resetPassword`, data);
+  }
+  updateProfileService(data) {
+    return this.http.post(`${this.baseURL}updateProfileService`, data);
   }
 }

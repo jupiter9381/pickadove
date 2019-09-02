@@ -76,4 +76,25 @@ class ProfileController extends Controller
         $review->save();
         return response()->json(['status' => 'success', 'type'=>$request->input('type'), 'result' => 'Committed review successfully.', 'review' => $review], 200);
     }
+
+    public function updateProfileService(Request $request) {
+        $user_id = Auth::user()->id;
+        $field_id = $request->input('field_id');
+        if($request->input('value') == true){
+            $value = 1;
+        } else {
+            $value = 0;
+        }
+        $profile = Profile::where('user_id', $user_id)->where('field_id', $field_id)->first();
+        if($profile) {
+            Profile::where('user_id', $user_id)->where('field_id', $field_id)->update(array('value' => $value));
+        } else {
+            Profile::create([
+                'user_id' => $user_id,
+                'field_id' => $field_id,
+                'value' => $value
+            ]);
+        }
+        return response()->json(['status' => 'success', 'result' => 'Updated service successfully.'], 200);
+    }
 }

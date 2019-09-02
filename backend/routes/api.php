@@ -39,4 +39,6 @@ Route::group(['middleware' => 'auth.jwt'], function () {
 
     Route::post('getProfileReviews', 'ProfileController@getProfileReviews');
     Route::post('saveReview', 'ProfileController@saveReview');
+
+    Route::post('updateProfileService', 'ProfileController@updateProfileService');
 });

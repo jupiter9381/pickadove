@@ -41,6 +41,8 @@ export class ProfileEditComponent implements OnInit {
   mandatory: any;
   dropdowns: any;
   contacts: any;
+  services: any;
+
   reviewSelected: any = 'comment';
 
     state: any;
@@ -51,9 +53,12 @@ export class ProfileEditComponent implements OnInit {
   profileForm = new FormGroup({
     mandatory_values: new FormArray([new FormControl(), new FormControl(), new FormControl(), new FormControl(), new FormControl()]),
     contacts_values: new FormArray([new FormControl(), new FormControl(), new FormControl(), new FormControl(), new FormControl()]),
-    dropdown_values: new FormArray([new FormControl(), new FormControl(), new FormControl(), new FormControl(), new FormControl()]),
+    dropdown_values: new FormArray([new FormControl(), new FormControl(), new FormControl(), new FormControl(), new FormControl()])
   });
 
+  serviceForm = new FormGroup({
+    service_values: new FormArray([new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false), new FormControl(false)])
+  })
 
   ngOnInit() {
 
@@ -67,9 +72,17 @@ export class ProfileEditComponent implements OnInit {
   getProfileFields() {
     this.api.getProfileFields({token: this.token.get()})
       .subscribe(data => {
+        console.log(data);
         this.mandatory = data['mandatory'];
         this.dropdowns = data['dropdowns'];
         this.contacts = data['contacts'];
+        this.services = data['services'];
+        this.services.forEach((item, index) => {
+          if(item['selected_val'] === "1")
+            this.serviceForm.controls['service_values']['controls'][index].setValue(true);
+          else 
+            this.serviceForm.controls['service_values']['controls'][index].setValue(false);
+        });
       });
   }
 
@@ -157,6 +170,17 @@ export class ProfileEditComponent implements OnInit {
 
   }
 
+  changeService(index:any) {
+    let data = {
+      field_id: this.services[index]['id'],
+      value: this.serviceForm.value['service_values'][index],
+      token: this.token.get()
+    }
+    return this.api.updateProfileService(data).subscribe(
+      data => this.handleProfileResponse(data),
+      error => this.handleError(error)
+    );
+  }
   submitReview(type: any) {
     let data: any
     if(type === "comment") {
