@@ -17,7 +17,7 @@ import { GuardService } from './service/guard.service';
 
 const routes: Routes = [
   { path: '', component: SignupComponent},
-  { path: 'signup', component: SignupComponent},
+  { path: 'login', component: SignupComponent},
   { path: 'password', component: PasswordComponent},
   { path: 'reset-password', component: ResetPasswordComponent},
   { path: 'profile-preview', component: ProfilePreviewComponent},

@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\TestEmail;
 use App\Mail\PasswordEmail;
 
+use DB;
+
 class ApiController extends Controller
 {
     public $loginAfterSignUp = true;
@@ -116,5 +118,21 @@ class ApiController extends Controller
         $data = ['email' => $email];
         
         Mail::to($request->email)->send(new PasswordEmail($data));
+        return response()->json([
+            'success' => true,
+            'message' => "Email sent successfully"
+        ], 200);
+    }
+
+    public function resetPassword(Request $request) {
+        $email = $request->input('email');
+        $password = $request->input('password');
+        DB::table('users')
+            ->where('email', $email)
+            ->update(['password' => bcrypt($password)]);
+        return response()->json([
+            'success' => true,
+            'message' => "Update password successfully."
+        ], 200);
     }
 }

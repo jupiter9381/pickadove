@@ -22,6 +22,8 @@ Route::post('login', 'ApiController@login');
 Route::post('register', 'ApiController@register');
 Route::post('checkVerification', 'ApiController@checkVerification');
 Route::post('passwordRecovery', 'ApiController@passwordRecovery');
+Route::post('resetPassword', 'ApiController@resetPassword');
+Route::post('logout', 'ApiController@logout');
 
 Route::group(['middleware' => 'auth.jwt'], function () {
     Route::get('logout', 'ApiController@logout');

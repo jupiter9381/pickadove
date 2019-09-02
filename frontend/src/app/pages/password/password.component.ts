@@ -12,16 +12,20 @@ export class PasswordComponent implements OnInit {
 
   email = new FormControl('', [Validators.required, Validators.email]);
 
+  checkedSendEmail:boolean = false;
   constructor(private api: ApiService) { }
 
   ngOnInit() {
+    this.checkedSendEmail = false;
   }
 
   onSubmit() {
     let data = {email: this.email.value}
     this.api.passwordRecovery(data)
       .subscribe(data => {
-        console.log(data);
+        if(data['success'] === true) {
+          this.checkedSendEmail = true;
+        }
       });
   }
 }

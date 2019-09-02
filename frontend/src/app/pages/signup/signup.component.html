@@ -3,12 +3,12 @@
     
     <div class="shadow sign-btn-group">
         <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#home">Sign Up</a></li>
-            <li><a data-toggle="tab" href="#menu1">Sign In</a></li>
+            <li class="active"><a data-toggle="tab" href="#menu1">Sign In</a></li>
+            <li><a data-toggle="tab" href="#home">Sign Up</a></li>
         </ul>
     
         <div class="tab-content sing-tab-content">
-            <div id="home" class="tab-pane fade in active">
+            <div id="home" class="tab-pane fade">
                 <h2 class="sign-create">Create Your Account</h2>
                 <p class="sign-select">Please Select Account Type</p>
                 <form action="" (ngSubmit)="onRegister()" [formGroup]="signupForm">
@@ -35,7 +35,7 @@
                     <button type="submit" class="btn btn-primary sign-btn-signUp">Sign Up</button>
                 </form>
             </div>
-            <div id="menu1" class="tab-pane fade sign-menu">
+            <div id="menu1" class="tab-pane fade sign-menu in active">
                 <h2>Log In</h2>
                 <form action="" (ngSubmit)="onLogin()">
                     <div class="form-group">

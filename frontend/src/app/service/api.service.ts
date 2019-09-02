@@ -40,4 +40,7 @@ export class ApiService {
   passwordRecovery(data){
     return this.http.post(`${this.baseURL}passwordRecovery`, data);
   }
+  resetPassword(data) {
+    return this.http.post(`${this.baseURL}resetPassword`, data);
+  }
 }
