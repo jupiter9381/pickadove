@@ -7,7 +7,8 @@
                 <h4>Boys Testimonial</h4>
                 <p><img src="assets/images/plus.png"><a href="#">Add New</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Search Now</a></p>
             </div>
-            <button class="pause_btn">PAUSE AD</button>
+            <button class="pause_btn" *ngIf="isVisible" (click)="makePublic(1)">Go to live</button>
+            <button class="pause_btn" *ngIf="!isVisible" (click)="makePublic(0)">PAUSE AD</button>
             <div class="credit">
                 <h4>Account Credit</h4>
                 <p><img src="assets/images/plus.png"><a href="#">Add Credit</a>&nbsp;&nbsp;>&nbsp;&nbsp;<span>$100.00</span></p>

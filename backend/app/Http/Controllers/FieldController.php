@@ -49,6 +49,6 @@ class FieldController extends Controller
         }
 
         $location = Auth::user()->suburb.' '.Auth::user()->state. ', '.Auth::user()->country;
-        return response()->json(['status' => 'success', 'mandatory' => $mandatory, 'dropdowns' => $dropdowns, 'contacts' => $contacts, 'services' => $services, 'location'=>$location], 200);
+        return response()->json(['status' => 'success', 'mandatory' => $mandatory, 'dropdowns' => $dropdowns, 'contacts' => $contacts, 'services' => $services, 'location'=>$location, 'user'=>Auth::user()], 200);
     }
 }

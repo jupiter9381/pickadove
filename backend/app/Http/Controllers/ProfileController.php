@@ -113,4 +113,12 @@ class ProfileController extends Controller
         }
         return response()->json(['status' => 'success', 'result' => 'Updated service successfully.'], 200);
     }
+    public function makePublic(Request $request) {
+        $user_id = Auth::user()->id;
+        $visible = $request->input('visible');
+        $user = User::find($user_id);
+        $user->visible = $visible;
+        $user->save();
+        return response()->json(['status' => 'success', 'result' => 'Profile is live now'], 200);
+    }
 }

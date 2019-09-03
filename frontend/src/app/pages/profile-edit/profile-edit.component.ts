@@ -36,6 +36,7 @@ export class ProfileEditComponent implements OnInit {
   complaint_name = new FormControl('', [Validators.required]);
   complaint_message = new FormControl('', [Validators.required]);
 
+  isVisible: boolean = true;
   constructor(private api: ApiService, private token: TokenService, private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone) { }
 
@@ -79,6 +80,12 @@ export class ProfileEditComponent implements OnInit {
         this.dropdowns = data['dropdowns'];
         this.contacts = data['contacts'];
         this.services = data['services'];
+        console.log(data['user']['visible']);
+        // get user visible status
+        if(data['user']['visible'] === "0")
+          this.isVisible = true;
+        else 
+          this.isVisible = false;
         this.services.forEach((item, index) => {
           if(item['selected_val'] === "1")
             this.serviceForm.controls['service_values']['controls'][index].setValue(true);
@@ -239,13 +246,21 @@ export class ProfileEditComponent implements OnInit {
         country: this.country,
         token: this.token.get()
       }
-      console.log(data);
       this.api.updateLocation(data)
       .subscribe(data => {
         $('#locationModal').modal('hide');
       });
     }
-
+  }
+  makePublic(visible:any){
+    let data = {
+      visible: visible,
+      token: this.token.get()
+    }
+    this.api.makePublic(data)
+      .subscribe(data => {
+        this.isVisible = visible != 0 ? false : true;
+      });
   }
   toggleEmojiPicker(type:any) {
     this.showEmojiPicker = !this.showEmojiPicker;

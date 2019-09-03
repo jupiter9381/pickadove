@@ -49,4 +49,7 @@ export class ApiService {
   updateProfileService(data) {
     return this.http.post(`${this.baseURL}updateProfileService`, data);
   }
+  makePublic(data) {
+    return this.http.post(`${this.baseURL}makePublic`, data);
+  }
 }
