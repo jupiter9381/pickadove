@@ -68,6 +68,7 @@ class ProfileController extends Controller
         $user = User::find($user_id);
         $user->state = $request->input('state');
         $user->suburb = $request->input('suburb');
+        $user->country = $request->input('country');
         $user->save();
         return response()->json(['status' => 'success', 'result' => 'Update location successfully.'], 200);
     }

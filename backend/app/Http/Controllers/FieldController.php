@@ -47,6 +47,8 @@ class FieldController extends Controller
             if($value->type == "3") array_push($contacts, $item);
             if($value->type == "4") array_push($services, $item);
         }
-        return response()->json(['status' => 'success', 'mandatory' => $mandatory, 'dropdowns' => $dropdowns, 'contacts' => $contacts, 'services' => $services], 200);
+
+        $location = Auth::user()->suburb.' '.Auth::user()->state. ', '.Auth::user()->country;
+        return response()->json(['status' => 'success', 'mandatory' => $mandatory, 'dropdowns' => $dropdowns, 'contacts' => $contacts, 'services' => $services, 'location'=>$location], 200);
     }
 }

@@ -46,10 +46,11 @@ export class ProfileEditComponent implements OnInit {
 
   reviewSelected: any = 'comment';
 
-    state: any;
-    suburb: any;
+  country:any;
+  state: any;
+  suburb: any;
 
-    changableLocation: boolean;
+  changableLocation: boolean;
 
   profileForm = new FormGroup({
     mandatory_values: new FormArray([new FormControl(), new FormControl(), new FormControl(), new FormControl(), new FormControl()]),
@@ -73,6 +74,7 @@ export class ProfileEditComponent implements OnInit {
   getProfileFields() {
     this.api.getProfileFields({token: this.token.get()})
       .subscribe(data => {
+        this.searchControl.setValue(data['location']);
         this.mandatory = data['mandatory'];
         this.dropdowns = data['dropdowns'];
         this.contacts = data['contacts'];
@@ -89,7 +91,7 @@ export class ProfileEditComponent implements OnInit {
         this.contacts.forEach((item, index) => {
           this.profileForm.controls['contacts_values']['controls'][index].setValue(item['selected_val']);
         });
-        
+
         var drop_values = this.dropdowns;
         setTimeout(function() {
           let dropdownValues = [];
@@ -128,14 +130,14 @@ export class ProfileEditComponent implements OnInit {
           if (place.geometry === undefined || place.geometry === null) {
             return;
           };
-          let address = place['formatted_address'].split(",")[0];
+          let address = place['formatted_address'].split(", ")[0];
           let address_array = address.split(' ');
+          this.country = place['formatted_address'].split(",")[1];
           this.state = address_array[address_array.length - 1];
           this.suburb = '';
           for (let i = 0; i < address_array.length - 1; i++) {
-            this.suburb += address_array[i];
+            this.suburb += address_array[i] + " ";
           }
-          
         });
       });
     });
@@ -234,8 +236,10 @@ export class ProfileEditComponent implements OnInit {
       let data = {
         state: this.state,
         suburb: this.suburb,
+        country: this.country,
         token: this.token.get()
       }
+      console.log(data);
       this.api.updateLocation(data)
       .subscribe(data => {
         $('#locationModal').modal('hide');
