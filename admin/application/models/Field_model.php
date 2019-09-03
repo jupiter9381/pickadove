@@ -9,6 +9,15 @@
         public function get_fields() {
             $this->db->select('*');
             $this->db->from('fields');
+            $this->db->where('type !=', 4);
+            $query = $this->db->get();
+            return $query->result();
+        }
+
+        public function get_services() {
+            $this->db->select('*');
+            $this->db->from('fields');
+            $this->db->where('type', 4);
             $query = $this->db->get();
             return $query->result();
         }

@@ -34,6 +34,8 @@
                                                         Mandaytory Field 
                                                     <?php } else if ($value->type == "2") {?>
                                                         Dropdown    
+                                                    <?php } else if ($value->type == "3") {?>
+                                                        Contact
                                                     <?php }?>
                                                 </td>
                                                 <td><?= $value -> name; ?></td>
