@@ -25,27 +25,42 @@ class ProfileController extends Controller
         $dropdowns = $request->input('dropdowns');
 
         foreach($mandatory as $key => $value) {
-            Profile::create([
-                'user_id' => $user_id,
-                'field_id'  => $value['id'],
-                'value' => $value['value'],
-            ]);
+            $profile = Profile::where('user_id', $user_id)->where('field_id', $value['id'])->first();
+            if($profile) {
+                Profile::where('user_id', $user_id)->where('field_id', $value['id'])->update(array('value' => $value['value']));
+            } else {
+                Profile::create([
+                    'user_id' => $user_id,
+                    'field_id' => $value['id'],
+                    'value' => $value['value']
+                ]);
+            }
         }
         foreach($contacts as $key => $value) {
-            Profile::create([
-                'user_id' => $user_id,
-                'field_id'  => $value['id'],
-                'value' => $value['value'],
-            ]);
+            $profile = Profile::where('user_id', $user_id)->where('field_id', $value['id'])->first();
+            if($profile) {
+                Profile::where('user_id', $user_id)->where('field_id', $value['id'])->update(array('value' => $value['value']));
+            } else {
+                Profile::create([
+                    'user_id' => $user_id,
+                    'field_id' => $value['id'],
+                    'value' => $value['value']
+                ]);
+            }
         }
         foreach($dropdowns as $key => $value) {
-            Profile::create([
-                'user_id' => $user_id,
-                'field_id'  => $value['id'],
-                'value' => json_encode($value['value']),
-            ]);
+            $profile = Profile::where('user_id', $user_id)->where('field_id', $value['id'])->first();
+            if($profile) {
+                Profile::where('user_id', $user_id)->where('field_id', $value['id'])->update(array('value' => json_encode($value['value'])));
+            } else {
+                Profile::create([
+                    'user_id' => $user_id,
+                    'field_id' => $value['id'],
+                    'value' => $value['value']
+                ]);
+            }
         }
-        return response()->json(['status' => 'success'], 200);
+        return response()->json(['status' => 'success', 'result' => $dropdowns], 200);
     }
 
     public function updateLocation(Request $request) {
