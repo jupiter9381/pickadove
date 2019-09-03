@@ -73,7 +73,6 @@ export class ProfileEditComponent implements OnInit {
   getProfileFields() {
     this.api.getProfileFields({token: this.token.get()})
       .subscribe(data => {
-        console.log(data);
         this.mandatory = data['mandatory'];
         this.dropdowns = data['dropdowns'];
         this.contacts = data['contacts'];
@@ -84,6 +83,24 @@ export class ProfileEditComponent implements OnInit {
           else 
             this.serviceForm.controls['service_values']['controls'][index].setValue(false);
         });
+        this.mandatory.forEach((item, index) => {
+          this.profileForm.controls['mandatory_values']['controls'][index].setValue(item['selected_val']);
+        });
+        this.contacts.forEach((item, index) => {
+          this.profileForm.controls['contacts_values']['controls'][index].setValue(item['selected_val']);
+        });
+        
+        var drop_values = this.dropdowns;
+        setTimeout(function() {
+          let dropdownValues = [];
+          drop_values.forEach((item, index) => {
+            dropdownValues.push(JSON.parse(item['selected_val']));
+          });
+          $("select.select2").each(function(index) {
+            $(this).val(dropdownValues[index]);
+            $(this).select2().trigger('change');
+          });
+        }, 1000);
       });
   }
 
@@ -242,6 +259,7 @@ export class ProfileEditComponent implements OnInit {
       $('.select2').select2({
       });
     }, 1000);
+    
   }
 
   handleProfileResponse(data: any) {
