@@ -8,6 +8,7 @@ import { TokenService } from '../../service/token.service';
 
 
 declare var $:any;
+declare const google: any;
 
 @Component({
   selector: 'app-profile-edit',
@@ -21,12 +22,12 @@ export class ProfileEditComponent implements OnInit {
   public searchControl: FormControl;
   public zoom: number;
 
-  comments: [];
-  complaints: [];
+  comments = [];
+  complaints = [];
 
   showEmojiPicker = false;
 
-  @ViewChild('search')
+  @ViewChild('search', {static: true})
 
   public searchElementRef: ElementRef;
 
@@ -104,7 +105,7 @@ export class ProfileEditComponent implements OnInit {
         this.changableLocation = true;
         this.ngZone.run(() => {
           //get the place result
-          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+          let place = autocomplete.getPlace();
 
           //verify result
           if (place.geometry === undefined || place.geometry === null) {
