@@ -28,7 +28,8 @@
                                         <tr style="cursor: pointer;">
                                             <th scope="row"><?= $key + 1; ?></th>
                                             <td><?= $value -> name; ?></td>
-                                            <td><a class="btn btn-primary" href="<?= base_url();?>review/delete/<?= $value->id;?>">Delete</a></td>
+                                            <td><button class="btn btn-primary delete" service-id="<?= $value->id;?>" link="<?= base_url();?>services/delete/<?= $value->id;?>" data-toggle="modal" data-backdrop="false" href="#delete-modal">Delete</button></td>
+                                            <!-- <td><a class="btn btn-primary" href="<?= base_url();?>services/delete/<?= $value->id;?>">Delete</a></td> -->
                                         </tr>
                                         <?php }?>
                                     </tbody>
@@ -56,6 +57,25 @@
                                 <button type="submit" class="btn btn-outline-primary doAddValue" >Save value</button>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade text-left" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel8" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary white">
+                            <h4 class="modal-title" id="myModalLabel8">Delete Confirm</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h5>Are you sure to delete this service?</h5>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-outline-primary confirm_del" >Delete</button>
+                        </div>
                     </div>
                 </div>
             </div>

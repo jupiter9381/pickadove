@@ -18,6 +18,7 @@
                                                     <th>#</th>
                                                     <th>Username</th>
                                                     <th>Time</th>
+                                                    <th>Email</th>
                                                     <th>Receiver Name</th>
                                                     <th>Notes</th>
                                                     <th></th>
@@ -31,8 +32,9 @@
                                                     <td><?= $value -> username; ?></td>
                                                     <td><?= $value -> created_at; ?></td>
                                                     <td><?= $value -> recevier_email; ?></td>
+                                                    <td><?= $value-> firstname;?> <?= $value-> lastname;?></td>
                                                     <td><?= $value -> notes; ?></td>
-                                                    <td><button class="btn btn-primary delete" link="<?= base_url();?>review/delete/<?= $value->id;?>" data-toggle="modal" data-backdrop="false" href="#delete-modal">Delete</button></td>
+                                                    <td><button class="btn btn-primary delete" review-id="<?= $value->id;?>" link="<?= base_url();?>review/delete/<?= $value->id;?>" data-toggle="modal" data-backdrop="false" href="#delete-modal">Delete</button></td>
                                                 </tr>
                                                 <?php }?>
                                             </tbody>
@@ -47,11 +49,11 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <h5>Are you sure to delete this comment?</h5>
+                                                        <h5>Are you sure to delete this review?</h5>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Close</button>
-                                                        <button type="button" class="btn btn-outline-primary confirm_del" >Save changes</button>
+                                                        <button type="button" class="btn btn-outline-primary confirm_del" >Delete</button>
                                                     </div>
                                                 </div>
                                             </div>

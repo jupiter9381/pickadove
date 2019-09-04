@@ -14,7 +14,7 @@ use App\Mail\TestEmail;
 use App\Mail\PasswordEmail;
 
 use DB;
-use Auth;
+// use Auth;
 
 class ApiController extends Controller
 {
@@ -136,12 +136,16 @@ class ApiController extends Controller
             'message' => "Update password successfully."
         ], 200);
     }
-    public function getUserInfo(Request $request) {
-        $user_id = Auth::user()->id;
-        $user = User::find($user_id);
-        return response()->json([
-            'success' => true,
-            'user' => $user
-        ], 200);
-    }
+    // public function getUserInfo(Request $request) {
+    //     $user_id = Auth::user()->id;
+    //     $user = User::find($user_id);
+    //     //$ip = \Request::getClientIp(true);
+    //     $ip = "86.102.44.0";
+    //     $geo = geoip()->getLocation($ip);
+    //     return response()->json([
+    //         'success' => true,
+    //         'user' => $user,
+    //         'ip' => $geo
+    //     ], 200);
+    // }
 }

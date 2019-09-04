@@ -26,5 +26,13 @@
             $this->db->insert('fields', $data);
             return;
         }
+        public function delete($id) {
+            $condition = array(
+                'id' => $id
+            );
+            $this->db->where($condition);
+            $this->db->delete('fields');
+            return;
+        }
     }
 ?>

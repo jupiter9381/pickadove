@@ -18,9 +18,10 @@ export class HeaderComponent implements OnInit {
   }
 
   getUserInfo() {
-    this.api.getUserInfo({token: this.token.get()})
-      .subscribe(data => {
-        this.state = data['user']['state'];
-      });
+    // this.api.getUserInfo({token: this.token.get()})
+    //   .subscribe(data => {
+    //     console.log(data);
+    //     this.state = data['user']['state'];
+    //   });
   }
 }

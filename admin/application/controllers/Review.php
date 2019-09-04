@@ -26,5 +26,11 @@ class Review extends Base_Controller {
         $this->load->view('templates/menu' );
         $this->load->view('reviews/complaints', $content);
         $this->load->view('templates/footer');
+        $this->load->view('reviews/script');
+    }
+    public function delete() {
+        $id = $this->input->post('id');
+        $this->review->delete($id);
+        echo json_encode(array("result" => "Deleted Successfully!"));
     }
 }

@@ -18,7 +18,7 @@ class Fields extends Base_Controller {
         $this->load->view('templates/menu' );
         $this->load->view('fields/index', $content);
         $this->load->view('templates/footer');
-        $this->load->view('reviews/script');
+        $this->load->view('fields/script');
     }
 
     public function add() {
@@ -85,6 +85,10 @@ class Fields extends Base_Controller {
 
         $this->field->add_value($data);
         redirect('/fields/add');
-        
+    }
+    public function delete() {
+        $id = $this->input->post('id');
+        $this->field->delete($id);
+    	echo json_encode(array("result" => "Deleted Successfully!"));
     }
 }

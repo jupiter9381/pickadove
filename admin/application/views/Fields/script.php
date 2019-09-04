@@ -26,6 +26,25 @@
     });
 
     $('.custom-file input').change(function (e) {
-      $(this).next('.custom-file-label').html(e.target.files[0].name);
-  });
+        $(this).next('.custom-file-label').html(e.target.files[0].name);
+    });
+
+    var field_id = "";
+    $(".delete").click(function(e){
+        field_id = $(this).attr('field-id');
+        console.log(field_id);
+    });
+
+    $(".confirm_del").click(function(e){
+        console.log(field_id);
+        $.ajax({
+            url : '/fields/delete',
+            type : 'post',
+            dataType : 'json',
+            data: {id: field_id},
+            success: function(data){
+                window.location.reload();
+            }
+        });
+    });
 </script>

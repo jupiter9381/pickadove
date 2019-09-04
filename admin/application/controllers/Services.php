@@ -32,4 +32,10 @@ class Services extends Base_Controller {
         $this->field->add_value($data);
         redirect('/services');
     }
+
+    public function delete() {
+        $id = $this->input->post('id');
+        $this->field->delete($id);
+    	echo json_encode(array("result" => "Deleted Successfully!"));
+    }
 }
