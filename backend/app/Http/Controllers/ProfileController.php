@@ -124,7 +124,7 @@ class ProfileController extends Controller
 
     public function getPublicProfiles(Request $request) {
         $user_id = Auth::user()->id;
-        $users = User::where('id', '!=', $user_id)->skip(0)->take(5)->get();
+        $users = User::where('id', '!=', $user_id)->where('visible', 1)->skip(0)->take(5)->get();
         foreach($users as $key => $value) {
             $user_id = $value->id;
             $profiles = DB::table('profiles')->select('profiles.*', 'fields.name', 'fields.required')->join('fields', 'fields.id', '=', 'profiles.field_id')->where('profiles.user_id', $user_id)->get();

@@ -20,5 +20,13 @@
             $query = $this->db->get();
             return $query->result();
         }
+        public function delete($id) {
+            $condition = array(
+                'id' => $id
+            );
+            $this->db->where($condition);
+            $this->db->delete('users');
+            return;
+        }
     }
 ?>
