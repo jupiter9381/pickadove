@@ -14,6 +14,7 @@ use App\Mail\TestEmail;
 use App\Mail\PasswordEmail;
 
 use DB;
+use Auth;
 
 class ApiController extends Controller
 {
@@ -133,6 +134,14 @@ class ApiController extends Controller
         return response()->json([
             'success' => true,
             'message' => "Update password successfully."
+        ], 200);
+    }
+    public function getUserInfo(Request $request) {
+        $user_id = Auth::user()->id;
+        $user = User::find($user_id);
+        return response()->json([
+            'success' => true,
+            'user' => $user
         ], 200);
     }
 }

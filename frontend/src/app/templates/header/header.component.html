@@ -8,13 +8,13 @@
         <div class="navbar_btm_div">
             <div class="states" data-toggle="modal" data-target="#myModal">STATES</div>
             <ul>
-                <li>SA</li>
-                <li>VIC</li>
-                <li class="nav_active">NSW</li>
-                <li>QLD</li>
-                <li>NT</li>
-                <li>WA</li>
-                <li>TAS</li>
+                <li [ngClass]="{'nav_active': state==='SA'}">SA</li>
+                <li [ngClass]="{'nav_active': state==='VIC'}">VIC</li>
+                <li [ngClass]="{'nav_active': state==='NSW'}">NSW</li>
+                <li [ngClass]="{'nav_active': state==='QLD'}">QLD</li>
+                <li [ngClass]="{'nav_active': state==='NT'}">NT</li>
+                <li [ngClass]="{'nav_active': state==='WA'}">WA</li>
+                <li [ngClass]="{'nav_active': state==='TAS'}">TAS</li>
             </ul>
             <button class="set_btn">Set Default</button>
         </div>

@@ -60,7 +60,7 @@ export class SignupComponent implements OnInit {
     }
     if(data.type === 'signin') {
       localStorage.setItem('token', data.token);
-      this.router.navigate(['profile-edit']);
+      this.router.navigate(['home']);
     }
   }
   handleError(error: any) {}

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ApiService } from '../../service/api.service';
 import { TokenService } from '../../service/token.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ import { TokenService } from '../../service/token.service';
 export class HomeComponent implements OnInit {
 
   profiles = [];
-  constructor(private api: ApiService, private token: TokenService) { }
+  constructor(private api: ApiService, private token: TokenService, private router: Router) { }
 
   ngOnInit() {
     this.getPublicProfiles();
@@ -24,6 +25,11 @@ export class HomeComponent implements OnInit {
     this.api.getPublicProfiles(data)
       .subscribe(data => {
         this.profiles = data['users'];
+      },
+      error => {
+        if(error.status === 401){
+          this.router.navigate(['login']);
+        }
       });
   }
 }

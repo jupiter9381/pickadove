@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../service/api.service';
+import { TokenService } from '../../service/token.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  state: any;
+
+  constructor(private api: ApiService, private token: TokenService) { }
 
   ngOnInit() {
+    this.getUserInfo();
   }
 
+  getUserInfo() {
+    this.api.getUserInfo({token: this.token.get()})
+      .subscribe(data => {
+        this.state = data['user']['state'];
+      });
+  }
 }

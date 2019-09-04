@@ -55,4 +55,7 @@ export class ApiService {
   getPublicProfiles(data) {
     return this.http.post(`${this.baseURL}getPublicProfiles`, data);
   }
+  getUserInfo(data) {
+    return this.http.post(`${this.baseURL}getUserInfo`, data);
+  }
 }
