@@ -12,12 +12,14 @@ import { ProfileEditComponent } from './pages/profile-edit/profile-edit.componen
 import { VerificationComponent } from './pages/verification/verification.component';
 import { PasswordComponent } from './pages/password/password.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { HomeComponent } from './pages/home/home.component';
 
 import { GuardService } from './service/guard.service';
 
 const routes: Routes = [
   { path: '', component: SignupComponent},
   { path: 'login', component: SignupComponent},
+  { path: 'home', component: HomeComponent},
   { path: 'password', component: PasswordComponent},
   { path: 'reset-password', component: ResetPasswordComponent},
   { path: 'profile-preview', component: ProfilePreviewComponent},

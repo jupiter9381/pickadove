@@ -23,6 +23,7 @@ import { ProfileEditComponent } from './pages/profile-edit/profile-edit.componen
 import { VerificationComponent } from './pages/verification/verification.component';
 import { PasswordComponent } from './pages/password/password.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ResetPasswordComponent } from './pages/reset-password/reset-password.co
     VerificationComponent,
     PasswordComponent,
     ResetPasswordComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

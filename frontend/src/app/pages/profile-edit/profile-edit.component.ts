@@ -80,7 +80,6 @@ export class ProfileEditComponent implements OnInit {
         this.dropdowns = data['dropdowns'];
         this.contacts = data['contacts'];
         this.services = data['services'];
-        console.log(data['user']['visible']);
         // get user visible status
         if(data['user']['visible'] === "0")
           this.isVisible = true;

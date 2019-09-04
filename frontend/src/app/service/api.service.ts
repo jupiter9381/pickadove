@@ -52,4 +52,7 @@ export class ApiService {
   makePublic(data) {
     return this.http.post(`${this.baseURL}makePublic`, data);
   }
+  getPublicProfiles(data) {
+    return this.http.post(`${this.baseURL}getPublicProfiles`, data);
+  }
 }

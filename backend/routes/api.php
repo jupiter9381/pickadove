@@ -42,4 +42,6 @@ Route::group(['middleware' => 'auth.jwt'], function () {
 
     Route::post('updateProfileService', 'ProfileController@updateProfileService');
     Route::post('makePublic', 'ProfileController@makePublic');
+
+    Route::post('getPublicProfiles', 'ProfileController@getPublicProfiles');
 });

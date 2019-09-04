@@ -121,4 +121,20 @@ class ProfileController extends Controller
         $user->save();
         return response()->json(['status' => 'success', 'result' => 'Profile is live now'], 200);
     }
+
+    public function getPublicProfiles(Request $request) {
+        $user_id = Auth::user()->id;
+        $users = User::where('id', '!=', $user_id)->skip(0)->take(5)->get();
+        foreach($users as $key => $value) {
+            $user_id = $value->id;
+            $profiles = DB::table('profiles')->select('profiles.*', 'fields.name', 'fields.required')->join('fields', 'fields.id', '=', 'profiles.field_id')->where('profiles.user_id', $user_id)->get();
+            $comments = DB::table('reviews')->where('receiver_id', $user_id)->where('type', 1)->get();
+            $complaints = DB::table('reviews')->where('receiver_id', $user_id)->where('type', 2)->get();
+            $value->profiles = $profiles;
+            $value->comments = $comments;
+            $value->complaints = $complaints;
+        }
+
+        return response()->json(['status' => 'success', 'users' => $users], 200);
+    }
 }
